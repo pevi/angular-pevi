@@ -1,0 +1,134 @@
+<div class="container" ng-app="myApp">
+<!-- <div class="container" ng-controller="ProductListCtrl"> -->
+
+		<!-- The navigation menu will get the value of the "active" variable as a class.
+		 The $event.preventDefault() stops the page from jumping when a link is clicked. -->
+
+
+
+	<nav class="{{active}}" ng-click="$event.preventDefault()">
+		<a href="#" class="home" ng-click="active='home'">Home</a>
+		<a href="#" class="projects" ng-click="active='projects'">Projects</a>
+		<a href="#" class="services" ng-click="active='services'">Services</a>
+		<a href="#" class="contact" ng-click="active='contact'">Contact</a>
+	</nav>
+
+	<!-- ng-show will show an element if the value in the quotes is truthful,
+		 while ng-hide does the opposite. Because the active variable is not set
+		 initially, this will cause the first paragraph to be visible. -->
+
+	<p ng-hide="active">Please click a menu item</p>
+	<p ng-show="active">You chose <b>{{active}}</b></p>
+
+    <div class="row">
+        <div class="col s12">
+
+        	<p>
+	          <strong>Menu item selected:</strong>
+	          <span class='text-danger'>{{item}}</span>
+	          <span class='help-block'>Select something from the menus in the navbar.</span>
+	        </p>
+
+            <h4>Products</h4>
+
+             <!-- used for searching the current list -->
+			<input type="text" ng-model="search" class="form-control" placeholder="Search product...">
+
+			<!-- table that shows product record list -->
+			<table class="hoverable bordered">
+			    <thead>
+			        <tr>
+			            <th class="text-align-center" ng:class="selectedCls(i)" ng:click="changeSorting(i)">ID</th>
+			            <th class="width-30-pct" ng:class="selectedCls(i)" ng:click="changeSorting(i)">Name</th>
+			            <th class="width-30-pct" ng:class="selectedCls(i)" ng:click="changeSorting(i)">Description</th>
+			            <th class="text-align-center" ng:class="selectedCls(i)" ng:click="changeSorting(i)">Price</th>
+			            <th class="text-align-center" ng:class="selectedCls(i)" ng:click="changeSorting(i)">Action</th>
+			        </tr>
+			    </thead>
+			    <tbody ng-init="getAll()">
+			        <tr ng-repeat="d in names | filter:search | orderBy:sort.column:sort.descending">
+			            <td class="text-align-center">{{ d.id }}</td>
+			            <td>{{ d.name }}</td>
+			            <td>{{ d.description }}</td>
+			            <td class="text-align-center">{{ d.price }}</td>
+			            <td>
+			                <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">edit</i>Edit</a>
+			                <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons left">delete</i>Delete</a>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+
+             <!-- floating button for creating product -->
+			<div class="fixed-action-btn" style="bottom:45px; right:24px;">
+				<!-- <button type="button" class="btn btn-default" ng-click="open()">Open me!</button> -->
+			    <a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red"  ng-click="open()"><i class="large material-icons">add</i></a>
+			</div>
+
+			<!-- <div id="modal-product-form" class="modal">
+			    <div class="modal-content">
+			        <h4 id="modal-product-title">Create New Product</h4>
+
+			        <div class="row">
+			            <div class="input-field col s12">
+			                <input ng-model="name" type="text" class="validate" id="form-name" placeholder="Type name here..." />
+			                <label for="name">Name</label>
+			            </div>
+			            <div class="input-field col s12">
+			                <textarea ng-model="description" type="text" class="validate materialize-textarea" placeholder="Type description here..."></textarea>
+			                <label for="description">Description</label>
+			            </div>
+			            <div class="input-field col s12">
+			                <input ng-model="price" type="text" class="validate" id="form-price" placeholder="Type price here..." />
+			                <label for="price">Price</label>
+			            </div>
+			            <div class="input-field col s12">
+			                <a id="btn-create-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="createProduct()"><i class="material-icons left">add</i>Create</a>
+
+			                <a id="btn-update-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="updateProduct()"><i class="material-icons left">edit</i>Save Changes</a>
+
+			                <a class="modal-action modal-close waves-effect waves-light btn margin-bottom-1em" ng-click="close()"><i class="material-icons left">close</i>Close</a>
+			            </div>
+			        </div>
+			    </div>
+			</div> -->
+
+			<script type="text/ng-template" id="myModalContent.html">
+		        <div class="modal-header">
+		       		<h4 id="modal-product-title">Create New Product</h4>
+		        </div>
+		        <div class="modal-body">
+			        <div class="row">
+			            <div class="input-field col s12">
+			                <input ng-model="name" type="text" class="validate" id="form-name" placeholder="Type name here..." />
+			                <label for="name">Name</label>
+			            </div>
+			            <div class="input-field col s12">
+			                <textarea ng-model="description" type="text" class="validate materialize-textarea" placeholder="Type description here..."></textarea>
+			                <label for="description">Description</label>
+			            </div>
+			            <div class="input-field col s12">
+			                <input ng-model="price" type="text" class="validate" id="form-price" placeholder="Type price here..." />
+			                <label for="price">Price</label>
+			            </div>
+			            <div class="input-field col s12">
+			                <a id="btn-create-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="createProduct()"><i class="material-icons left">add</i>Create</a>
+
+			                <a id="btn-update-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="updateProduct()"><i class="material-icons left">edit</i>Save Changes</a>
+			            </div>
+			        </div>
+		        </div>
+		        <div class="modal-footer">
+		            <button class="btn btn-primary" ng-click="ok()">OK</button>
+		            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		        </div>
+		    </script>
+
+
+
+        </div> <!-- end col s12 -->
+    </div> <!-- end row -->
+
+
+
+</div> <!-- end container -->
