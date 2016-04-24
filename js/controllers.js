@@ -98,7 +98,8 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
         terms : ''
       };
       // $scope.brand = "<span class='glyphicon glyphicon-user'></span> Home";
-      $scope.brand = "<i class='material-icons md-light left home-icon'>euro_symbol</i>";
+      //$scope.brand = "<i class='material-icons md-light left home-icon'>euro_symbol</i>";
+      $scope.brand = "<span class='brand'>Expensify</span>";
       $scope.inverse = true;
       $scope.activemenu = "home";
       $scope.menus = [
@@ -379,3 +380,35 @@ productControllers.controller('ProductDetailCtrl', ['$scope', '$routeParams', '$
       $scope.phone = data;
     });
   }]);
+
+productControllers.controller('SendMailCtrl', ['$scope', '$http', '$timeout',
+    function($scope, $http, $timeout) {
+        // create a blank object to hold our form information
+        // $scope will allow this to pass between controller and view
+        $scope.formData = {};
+
+        // process the form
+        $scope.contactMeForm = function () {
+            $http({
+                method: 'POST',
+                url: 'objects/mail.php',
+                data: $.param($scope.formData),  // pass in data as strings
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+            })
+                .success(function (data) {
+                    console.log(data.message);
+
+                    if (data.success) {
+                        $scope.successMessage = data.message;
+                        $timeout(function () {
+                            $scope.successMessage = false;
+                        }, 3000);
+
+                    }
+                    else {
+                        $scope.errorEmail = data.errors.userEmail;
+                    }
+                });
+
+        };
+    }]);
