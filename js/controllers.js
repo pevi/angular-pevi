@@ -104,22 +104,25 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
       $scope.activemenu = "home";
       $scope.menus = [
           {
-              title : "Dropdown Menu",
+              title : "Select expenses",
               className : "home",
               menu : [
                   {
-                      title : "Menu Item One",
+                      title : "Expenses",
                       action : "#/item.one"
                   },
+                  //{
+                  //    divider: true
+                  //},
                   {
-                      title : "Menu Item Two",
+                      title : "Categories",
                       action : "#/item.two"
                   },
+                  //{
+                  //    divider: true
+                  //},
                   {
-                      divider: true
-                  },
-                  {
-                      title : "Menu Item Three",
+                      title : "Expense/category builder",
                       action : "#/item.three"
                   }
               ]
@@ -337,8 +340,8 @@ var ModalInstanceCtrl = function ($scope, $uibModalInstance, items, $http, expen
         // refresh the list
         $scope.getAll();
       });
-      $uibModalInstance.close($scope.selected.option);
-      //$uibModalInstance.close();
+      //$uibModalInstance.close($scope.selected.option);
+      $uibModalInstance.close();
   };
 
   $scope.cancel = function () {
