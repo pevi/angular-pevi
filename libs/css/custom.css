@@ -225,15 +225,17 @@ a{
     display: inline;
     position: relative;
 }
+
 .custom-tooltip:hover:after{
-    background: #007eb1;
+    /*background: #007eb1;*/
+    background: rgba(0, 0, 0, 0.8);
     /*background: rgba(0,0,0,.8);*/
-    /*border-radius: 5px;*/
-    bottom: 0;
+    border-radius: 2px;
+    bottom: 34px;
     /*box-shadow: 1px 1px 3px 1px #007eb1;*/
     color: #fff;
     content: attr(atitle);
-    right: 100%;
+    right: -50px;
     padding: 5px 15px;
     position: absolute;
     z-index: 98;
@@ -241,14 +243,52 @@ a{
 }
 .custom-tooltip:hover:before{
     border: solid;
-    border-color: #007eb1 transparent;
-    /*border-width: 6px 0 6px 6px;*/
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 6px solid #007eb1;
-    bottom: 30%;
+    /*border-color: #007eb1 transparent;*/
+    border-color: rgba(0, 0, 0, 0.8) transparent;
+    border-width: 6px 6px 0 6px;
+    /*border-top: 6px solid transparent;*/
+    /*border-bottom: 6px solid transparent;*/
+    /*!*border-left: 6px solid #007eb1;*!*/
+    /*border-left: 6px solid rgba(0, 0, 0, 0.8);*/
+    bottom: 29px;
     content: "";
-    right: 80%;
+    right: 16px;
+    position: absolute;
+    z-index: 99;
+}
+.social-tooltip{
+    display: inline-block;
+    position: relative;
+}
+.social-tooltip:hover:after{
+    /*background: #007eb1;*/
+    /*background: rgba(255, 255, 255, 0.5);*/
+    background: rgba(0, 0, 0, 0.5);
+    /*border-radius: 5px;*/
+    bottom: 35px;
+    /*box-shadow: 0px 0px 5px 1px #fff;*/
+    /*color: #000;*/
+    color: #fff;
+    content: attr(atitle);
+    font-size: 12px;
+    right: -20px;
+    padding: 2px 10px;
+    position: absolute;
+    text-align: center;
+    z-index: 98;
+    width: 70px;
+}
+.social-tooltip:hover:before{
+    border: solid;
+    /*border-color: rgba(255, 255, 255, 0.5) transparent;*/
+    border-color: rgba(0, 0, 0, 0.5) transparent;
+    border-width: 6px 6px 0px 6px;
+    /*border-top: 6px solid transparent;*/
+    /*border-right: 6px solid transparent;*/
+    /*border-left: 6px solid #fff;*/
+    bottom: 29px;
+    content: "";
+    right: 8px;
     position: absolute;
     z-index: 99;
 }
