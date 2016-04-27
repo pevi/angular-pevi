@@ -111,16 +111,16 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
                       title : "Expenses",
                       action : "#/item.one"
                   },
-                  //{
-                  //    divider: true
-                  //},
+                  {
+                      divider: true
+                  },
                   {
                       title : "Categories",
                       action : "#/item.two"
                   },
-                  //{
-                  //    divider: true
-                  //},
+                  {
+                      divider: true
+                  },
                   {
                       title : "Expense/category builder",
                       action : "#/item.three"
