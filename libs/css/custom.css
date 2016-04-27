@@ -260,6 +260,7 @@ a{
     display: inline-block;
     position: relative;
 }
+
 .social-tooltip:hover:after{
     /*background: #007eb1;*/
     /*background: rgba(255, 255, 255, 0.5);*/
