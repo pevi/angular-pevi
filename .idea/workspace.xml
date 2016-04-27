@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cd90b8d-dc90-4b39-8dab-a953a3c1c292" name="Default" comment="layout changes">
+    <list default="true" id="3cd90b8d-dc90-4b39-8dab-a953a3c1c292" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/css/custom.css" afterPath="$PROJECT_DIR$/libs/css/custom.css" />
     </list>
     <ignored path="pevi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +36,8 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/libs/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="262" column="0" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+            <state relative-caret-position="425">
+              <caret line="274" column="17" selection-start-line="274" selection-start-column="17" selection-end-line="274" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -452,7 +451,7 @@
       <updated>1460997544412</updated>
       <workItem from="1461594595657" duration="6527000" />
       <workItem from="1461741723512" duration="216000" />
-      <workItem from="1461741958709" duration="23000" />
+      <workItem from="1461741958709" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="added send mail functionality">
       <created>1461498399510</created>
@@ -468,11 +467,18 @@
       <option name="project" value="LOCAL" />
       <updated>1461514199082</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="layout changes">
+      <created>1461741992442</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1461741992442</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6766000" />
+    <option name="totallyTimeSpent" value="7340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -922,8 +928,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libs/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="262" column="0" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="274" column="17" selection-start-line="274" selection-start-column="17" selection-end-line="274" selection-end-column="17" />
           <folding />
         </state>
       </provider>
