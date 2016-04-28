@@ -225,33 +225,66 @@ a{
     display: inline;
     position: relative;
 }
-.custom-tooltip:hover:after{
-    background: #007eb1;
+/*.custom-tooltip:hover:after{*/
+    /*background: #007eb1;*/
+    /*!*background: rgba(0,0,0,.8);*!*/
+    /*!*border-radius: 5px;*!*/
+    /*bottom: 0;*/
+    /*!*box-shadow: 1px 1px 3px 1px #007eb1;*!*/
+    /*color: #fff;*/
+    /*content: attr(atitle);*/
+    /*right: 100%;*/
+    /*padding: 5px 15px;*/
+    /*position: absolute;*/
+    /*z-index: 98;*/
+    /*!*width: 220px;*!*/
+/*}*/
+/*.custom-tooltip:hover:before{*/
+    /*border: solid;*/
+    /*border-color: #007eb1 transparent;*/
+    /*!*border-width: 6px 0 6px 6px;*!*/
+    /*border-top: 6px solid transparent;*/
+    /*border-bottom: 6px solid transparent;*/
+    /*border-left: 6px solid #007eb1;*/
+    /*bottom: 30%;*/
+    /*content: "";*/
+    /*right: 80%;*/
+    /*position: absolute;*/
+    /*z-index: 99;*/
+/*}*/
+.social-tooltip{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+/*.social-tooltip:hover:after{*/
     /*background: rgba(0,0,0,.8);*/
-    /*border-radius: 5px;*/
-    bottom: 0;
-    /*box-shadow: 1px 1px 3px 1px #007eb1;*/
-    color: #fff;
-    content: attr(atitle);
-    right: 100%;
-    padding: 5px 15px;
-    position: absolute;
-    z-index: 98;
-    /*width: 220px;*/
-}
-.custom-tooltip:hover:before{
-    border: solid;
-    border-color: #007eb1 transparent;
-    /*border-width: 6px 0 6px 6px;*/
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 6px solid #007eb1;
-    bottom: 30%;
-    content: "";
-    right: 80%;
-    position: absolute;
-    z-index: 99;
-}
+    /*!*background: rgba(0,0,0,.8);*!*/
+    /*!*border-radius: 5px;*!*/
+    /*bottom: 36px;*/
+    /*!*box-shadow: 1px 1px 3px 1px #007eb1;*!*/
+    /*color: #fff;*/
+    /*content: attr(atitle);*/
+    /*right: -23px;*/
+    /*padding: 5px 10px;*/
+    /*position: absolute;*/
+    /*text-align: center;*/
+    /*z-index: 98;*/
+    /*width: 75px;*/
+/*}*/
+/*.social-tooltip:hover:before{*/
+    /*border: solid;*/
+    /*border-color: rgba(0,0,0,.8) transparent;*/
+    /*border-width: 6px 6px 0px 6px;*/
+    /*!*border-top: 6px solid transparent;*!*/
+    /*!*border-bottom: 6px solid transparent;*!*/
+    /*!*border-left: 6px solid #007eb1;*!*/
+    /*bottom: 31px;*/
+    /*content: "";*/
+    /*right: 10px;*/
+    /*position: absolute;*/
+    /*z-index: 99;*/
+/*}*/
 .input-field{
     margin: 10px 0;
 }
@@ -297,7 +330,7 @@ a{
     bottom: 150px;
     overflow: auto;
     position: absolute;
-    top: 50px;
+    top: 52px;
     width: 100%;
 }
 #SkypeButton_Call_pietrolorddoom_1 {

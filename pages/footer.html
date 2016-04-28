@@ -67,7 +67,7 @@
 
                 <!-- social__item linkedin -->
                 <div class="social__item">
-                    <a target="_blank" href="https://www.linkedin.com/pub/peter-vidi%C5%A1/72/760/b75" class="social__icon--linkedin"><i class="icon--linkedin"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/pub/peter-vidi%C5%A1/72/760/b75" data-original-title="LinkedIn" data-toggle="tooltip" data-placement="top" class="social__icon--linkedin top"><i class="icon--linkedin"></i></a>
                 </div>
                 <!-- /social__item linkedin -->
 
@@ -79,7 +79,7 @@
 
                 <!-- social__item google+ -->
                 <div class="social__item">
-                    <a target="_blank" href="https://plus.google.com/103672354717326997943/posts" class="social__icon--googleplus"><i class="icon--googleplus"></i></a>
+                    <a target="_blank" href="https://plus.google.com/103672354717326997943/posts" data-original-title="Google+" data-toggle="tooltip" data-placement="top" class="social__icon--googleplus top"><i class="icon--googleplus"></i></a>
                 </div>
                 <!-- /social__item google+ -->
 
@@ -97,7 +97,7 @@
 
                 <!-- social__item facebook -->
                 <div class="social__item">
-                    <a target="_blank" href="https://www.facebook.com/pe.ve.942" class="social__icon--facebook"><i class="icon--facebook"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/pe.ve.942" data-original-title="Facebook" data-toggle="tooltip" data-placement="top" class="social__icon--facebook top"><i class="icon--facebook"></i></a>
                 </div>
                 <!-- /social__item facebook -->
 
@@ -171,11 +171,11 @@
                 <!--</div>-->
                 <!-- /social__item skype -->
 
-                <!-- social__item github -->
-                <!--<div class="social__item">-->
-                <!--<a target="_blank" href="http://github.com" class="social__icon&#45;&#45;github"><i class="icon&#45;&#45;github"></i></a>-->
-                <!--</div>-->
-                <!-- /social__item github -->
+                 <!--social__item github-->
+                <div class="social__item">
+                <a target="_blank" href="http://github.com/pevi/angular-pevi" data-original-title="GitHub" data-toggle="tooltip" data-placement="top" class="social__icon--github top"><i class="icon--github"></i></a>
+                </div>
+                 <!--/social__item github-->
 
                 <!-- social__item rdio -->
                 <!--<div class="social__item">-->
@@ -196,17 +196,12 @@
                 <!-- /social__item evernote -->
             </div>
         </div>
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
 </div>
+
+
+<script>
+    jQuery(document).ready(function(){
+        jQuery(".social__item a").tooltip();
+    });
+</script>
