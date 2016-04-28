@@ -324,9 +324,6 @@ a{
     width: 33%;
 }
 #pevi-content{
-	/*min-height:100%;*/
-	/*position:relative;*/
-
     bottom: 150px;
     overflow: auto;
     position: absolute;
