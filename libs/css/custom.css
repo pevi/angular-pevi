@@ -55,6 +55,8 @@ body{
 /*  Table css */
 .pevi-content table {
 	background-color: transparent;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 12px;
 	margin: 20px 0 0;
 }
 .pevi-content table {
@@ -89,6 +91,12 @@ body{
 	padding: 15px 5px;
 	text-align: left;
 	vertical-align: middle;
+}
+/*tbody tr:hover{*/
+    /*background: #f2f2f2;*/
+/*}*/
+td .tooltip {
+    position:absolute
 }
 .pevi-content table, th, td {
 	border: medium none;

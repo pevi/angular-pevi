@@ -3,6 +3,7 @@
 var app = angular.module('peviApp', [
 	'ngRoute',
   'productControllers',
+    'directives',
   'productFilters', 'ngSanitize'
   ]);
 

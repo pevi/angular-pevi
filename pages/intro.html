@@ -58,8 +58,8 @@
 			            <td>{{ d.category_desc }}</td>
 			            <td class="text-align-center">{{ d.created }}</td>
 			            <td class="text-align-center">
-			                <a ng-click="editExpense(d.id, categories)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons md-dark left">edit</i></a>
-			                <a ng-click="deleteExpense(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons md-dark left">delete</i></a>
+			                <a ng-click="editExpense(d.id, categories)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Edit" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">edit</i></a>
+			                <a ng-click="deleteExpense(d.id)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Delete" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">delete</i></a>
 			            </td>
 			        </tr>
 			    </tbody>
@@ -162,7 +162,9 @@
 			</script>
 			<script>
 				jQuery(document).ready(function(){
-					jQuery("a.custom-tooltip").tooltip();
+					jQuery("a.custom-tooltip").tooltip({
+						effect: 'slide', container:'td'
+					});
 				});
 			</script>
 
