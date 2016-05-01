@@ -109,7 +109,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
               menu : [
                   {
                       title : "Expenses",
-                      action : "#/item.one"
+                      action : "#/expenses"
                   },
                   {
                       divider: true

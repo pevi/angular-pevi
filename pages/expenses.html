@@ -32,7 +32,7 @@
                 <div class="fixed-action-btn" style="flex: 1 1 0; text-align: right;">
                     <!-- <button type="button" class="btn btn-default" ng-click="open()">Open me!</button> -->
                     <!--<a class="waves-effect waves-light btn modal-trigger btn-floating btn-large red"  ng-click="open(categories)"><i class="large material-icons">add</i></a>-->
-                    <a class="btn modal-trigger btn-floating btn-large add-expense custom-tooltip" atitle="Add New Expense" ng-click="open(categories)"><i class="large material-icons">add</i></a>
+                    <a class="btn modal-trigger btn-floating btn-large add-expense custom-tooltip" data-original-title="Add New Expense" data-toggle="tooltip" data-placement="top"  ng-click="open(categories)"><i class="large material-icons">add</i></a>
                 </div>
             </div>
 
@@ -58,8 +58,8 @@
                     <td>{{ d.category_desc }}</td>
                     <td class="text-align-center">{{ d.created }}</td>
                     <td class="text-align-center">
-                        <a ng-click="readOne(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons md-dark left">edit</i></a>
-                        <a ng-click="deleteProduct(d.id)" class="waves-effect waves-light btn margin-bottom-1em"><i class="material-icons md-dark left">delete</i></a>
+                        <a ng-click="editExpense(d.id, categories)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Edit" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">edit</i></a>
+                        <a ng-click="deleteExpense(d.id)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Delete" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">delete</i></a>
                     </td>
                 </tr>
                 </tbody>
@@ -126,6 +126,46 @@
                     <button class="btn btn-primary" ng-click="createExpense()">Create</button>
                     <button class="btn btn-cancel" ng-click="cancel()">Cancel</button>
                 </div>
+            </script>
+
+            <script type="text/ng-template" id="updateModal.html">
+                <div class="modal-header">
+                    <h4 id="modal-expense-title">Update expense</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="">
+                        <div class="input-field col s12">
+                            <label for="name">Name</label>
+                            <input ng-model="expense.name" type="text" class="validate" id="form-name-update"/>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="description">Description</label>
+                            <textarea ng-model="expense.description" type="text" class="validate materialize-textarea"></textarea>
+                        </div>
+                        <div class="input-field col s12">
+                            <label for="category">Category</label>
+                            <select ng-model="category" ng-options="item.name for item in items track by item.id">
+                                <!--<option ng-repeat="item in items" value="{{item.id}}">{{item.name}}</option>>-->
+                            </select>
+                        </div>
+                        <!--<div class="input-field col s12">-->
+                        <!--<a id="btn-create-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="createExpense()"><i class="material-icons left">add</i>Create</a>-->
+                        <!---->
+                        <!--<a id="btn-update-product" class="waves-effect waves-light btn margin-bottom-1em" ng-click="updateProduct()"><i class="material-icons left">edit</i>Save Changes</a>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" ng-click="updateExpense()">Update</button>
+                    <button class="btn btn-cancel" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+            <script>
+                jQuery(document).ready(function(){
+                    jQuery("a.custom-tooltip").tooltip({
+                        effect: 'slide', container:'td'
+                    });
+                });
             </script>
 
 
