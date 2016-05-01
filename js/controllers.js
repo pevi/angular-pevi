@@ -409,7 +409,7 @@ productControllers.controller('SendMailCtrl', ['$scope', '$http', '$timeout',
 
                     }
                     else {
-                        $scope.errorEmail = data.errors.userEmail;
+                        $scope.errorEmail = data.errors.exp_userEmail;
                     }
                 });
 

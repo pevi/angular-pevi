@@ -4,9 +4,14 @@ $errors = array();  	// array to hold validation errors
 $data = array(); 		// array to pass back data
 $body = "I have discovered your awesome page and to contact you !";
 // validate the variables ======================================================
-	if (empty($_POST['userEmail']))
-		$errors['userEmail'] = 'Email is required.';
-
+	if (empty($_POST['exp_first_name']))
+		$errors['exp_first_name'] = 'First name is required.';
+    if (empty($_POST['exp_last_name']))
+            $errors['exp_last_name'] = 'Last name is required.';
+    if (empty($_POST['exp_userEmail']))
+    		$errors['exp_userEmail'] = 'Email is required.';
+    if (empty($_POST['exp_description']))
+            $errors['exp_description'] = 'Message is required.';
 // return a response ===========================================================
 	// response if there are errors
 	if ( ! empty($errors)) {
@@ -25,8 +30,8 @@ $body = "I have discovered your awesome page and to contact you !";
         $mail->Host = "smtp.gmail.com";
         $mail->Port = 465; // or 587
         $mail->IsHTML(true);
-        $mail->Subject = "Y-Web Contact mail from e-mail: " .$_POST['userEmail']. "";
-        $mail->Body = "I have discovered your awesome page and to contact you !";
+        $mail->Subject = "Y-Web Contact mail from e-mail: " . $_POST['exp_first_name'] . " " . $_POST['exp_last_name'] . ": " . $_POST['exp_userEmail']. "";
+        $mail->Body = $_POST['exp_description'];
         $mail->AddAddress("peter.vidis@gmail.com"); //Pass the e-mail that you setup
          if(!$mail->Send())
             {

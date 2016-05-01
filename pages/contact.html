@@ -1,0 +1,122 @@
+<div class="container" ng-app="peviApp">
+    <div class="post-content" ng-controller="SendMailCtrl">
+        <div style="border-color:#eae9e9;
+        border-bottom-width: 0px;
+        border-top-width: 0px;
+        border-bottom-style: solid;
+        border-top-style: solid;
+        padding-bottom:0px;
+        padding-top:0px;
+        padding-left:0px;
+        padding-right:0px;"
+             class="fusion-fullwidth fullwidth-box fusion-fullwidth-1  fusion-parallax-none nonhundred-percent-fullwidth cc_contact">
+            <style scoped="scoped" type="text/css">.fusion-fullwidth-1 {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }</style>
+            <div class="fusion-row">
+
+                <div style="margin: 0 auto;" class="cc_contact_col2">
+                    <div class="">
+                        <div style="border-bottom: 1px solid;margin-bottom: 30px;font-family: 'MuseoSlab500Regular',arial,helvetica,sans-serif;" class="">
+                            <h1 class="title-heading-left" data-fontsize="35" data-lineheight="48">Contact Me Now</h1>
+                        </div>
+                        <div class="">
+                            <section class="form-holder clearfix">
+                                <div class="mail-message-block" ng-show="successMessage">{{successMessage}}</div>
+                                <div class="contact_me">
+                                    <form ng-submit="contactMeForm()" class="contact-me-form top-aligned">
+                                        <p id="requiredfieldsmsg" class="sf_required_fields_msg"><sup><span
+                                                class="required">*</span></sup> These fields are required.</p>
+
+                                        <div class="">
+                                            <p>
+                                                <label for="exp_first_name" class="w2llabel required  text">First name:
+                                                    <sup>
+                                                        <span class="required">*</span></sup>
+                                                </label>
+                                                <span class="contact_me-form-control-wrap">
+                                                    <input type="text" name="first_name" class=" contact_me-text required" id="exp_first_name" value="" placeholder="" ng-model="formData.exp_first_name">
+                                                </span>
+                                            </p>
+                                            <div class="clearfix">
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <p>
+                                                <label for="exp_last_name" class="w2llabel required  text">Last name:
+                                                    <sup><span class="required">*</span></sup>
+                                                </label>
+                                                <span class="contact_me-form-control-wrap">
+                                                    <input type="text" name="last_name"
+                                                           class="contact_me-form-control contact_me-text contact_me-validates-as-required required"
+                                                           id="exp_last_name" value="" placeholder="" ng-model="formData.exp_last_name">
+                                                </span>
+                                            </p>
+
+                                            <div class="clearfix">
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <p>
+                                                <label for="exp_userEmail" class="w2llabel required  text">Email: <sup>
+                                                    <span class="required">*</span></sup>
+                                                </label>
+                                                <span class="contact_me-form-control-wrap">
+                                                    <input type="text" name="email"
+                                                           class="contact_me-form-control contact_me-text contact_me-validates-as-required required"
+                                                           id="exp_userEmail" value="" placeholder="" ng-model="formData.exp_userEmail">
+                                                </span>
+                                            </p>
+
+                                            <div class="clearfix">
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <p>
+                                                <label for="exp_phone" class="w2llabel text">Phone:</label>
+                                                <span class="contact_me-form-control-wrap">
+                                                    <input type="text" name="phone"
+                                                           class="contact_me-form-control contact_me-text" id="exp_phone"
+                                                           value="" placeholder="" ng-model="formData.exp_phone">
+                                                </span>
+                                            </p>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="">
+                                            <p>
+                                                <label for="exp_description" class="w2llabel required  textarea">Message:
+                                                    <sup><span class="required">*</span></sup>
+                                                </label>
+                                                <span class="contact_me-form-control-wrap">
+                                                    <textarea placeholder="" name="description"
+                                                              class="contact_me-form-control contact_me-textarea contact_me-validates-as-required required"
+                                                              id="exp_description" ng-model="formData.exp_description">
+
+                                                    </textarea>
+                                                </span>
+                                            </p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <input type="text" style="display: none;" value="" class="w2linput"
+                                               name="message">
+                                        <input type="hidden" value="2" class="w2linput" name="form_id">
+
+                                        <p class="punt">
+                                            <input type="submit" value="Submit"
+                                                   class="contact_me-form-control contact_me-submit btn contact-me-form-btn"
+                                                   name="w2lsubmit">
+                                        </p>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="fusion-clearfix"></div>
+                    </div>
+                </div>
+                <div class="fusion-clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

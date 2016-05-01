@@ -30,6 +30,10 @@ app.config(['$routeProvider',
         templateUrl: 'pages/ha.html',
         controller: 'ProductDetailCtrl'
       }).
+      when('/contact-me', {
+        templateUrl: 'pages/contact.html',
+        controller: 'SendMailCtrl'
+      }).
       otherwise({
         redirectTo: '/intro'
       });

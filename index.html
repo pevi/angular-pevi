@@ -50,6 +50,33 @@
     jQuery(document).ready(function(){
         jQuery("a.custom-tooltip").tooltip({ effect: 'slide'});
     });
+
+//    $(document).ready(function() {
+//        (function() {
+//            //settings
+//            var fadeSpeed = 200, fadeTo = 0.5, topDistance = 30;
+//            var topbarME = function() { $('#pevi-navbar').fadeTo(fadeSpeed,1); },
+//                    topbarML = function() { $('#pevi-navbar').fadeTo(fadeSpeed,fadeTo); };
+//            var inside = false;
+//            //do
+//            $(window).scroll(function() {
+//                position = $(window).scrollTop();
+//                if(position > topDistance && !inside) {
+//                    //add events
+//                    topbarML();
+//                    $('#pevi-navbar').bind('mouseenter',topbarME);
+//                    $('#pevi-navbar').bind('mouseleave',topbarML);
+//                    inside = true;
+//                }
+//                else if (position < topDistance){
+//                    topbarME();
+//                    $('#pevi-navbar').unbind('mouseenter',topbarME);
+//                    $('#pevi-navbar').unbind('mouseleave',topbarML);
+//                    inside = false;
+//                }
+//            });
+//        })();
+//    });
 </script>
 <body>
 
@@ -57,13 +84,19 @@
         <angled-navbar affixed='affixed' brand='brand' activemenu='activemenu' inverse='inverse' menus='menus' navfn='navfn(action)' search='angledSearch' searchfn='searchfn()'></angled-navbar>
     </div>
 
-	<div ng-view id="pevi-content"></div>
+	<!--<div ng-view id="pevi-content"></div>-->
+	<main ng-view id="pevi-content"></main>
 
-    <div class="footer"  ng-controller="SendMailCtrl">
+    <!--<div class="footer"  ng-controller="SendMailCtrl">-->
+        <!--<div class="container">-->
+            <!--<div ng-include src="'pages/footer.html'"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <footer id="footer" class="footer">
         <div class="container">
             <div ng-include src="'pages/footer.html'"></div>
         </div>
-    </div>
+    </footer>
 
 	
 </body>

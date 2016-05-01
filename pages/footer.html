@@ -41,6 +41,13 @@
 
     <div class="credit">
         <div class="footer-left">
+
+            <div class="contactusMiddle">
+                <a class="button contact-me" type="button" target="_self" title="" href="#/contact-me">
+                    <span class="fusion-button-text">Contact Me Now !</span>
+                </a>
+            </div>
+            <p></p>
             <p style="display: inline-block;text-align: left;width: 100%;">&copy; <span>{{'' | currentdate}}</span>   Expensify &nbsp; | &nbsp;
                 Website design by: &nbsp;<a class="my-link" href="https://www.linkedin.com/pub/peter-vidi%C5%A1/72/760/b75" target="_blank">Pietro</a>
                 <!-- | <a href="copyright.php">Copyright complaint</a> -->
@@ -48,7 +55,7 @@
                 <!--<a href="https://plus.google.com/103672354717326997943/posts" target="_blank"><img src="images/gplus_grey_16.png" class="social"></a>-->
                 <!--<a href="https://www.youtube.com/channel/UCw13lQF7AWoHXvPUKaYBIbg" target="_blank"><img src="images/youtube_icon_16.png" class="social"></a>-->
             </p>
-            <p></p>
+
         </div>
         <div class="footer-right">
             <div>
@@ -56,12 +63,17 @@
                 <p></p>
                 <div class="mail-message-block" ng-show="successMessage">{{successMessage}}</div>
                 <p></p>
-                <form ng-submit="contactMeForm()" class="cta-form cta-form-sm">
-                    <input type="email" name="userEmail" required="" placeholder="your email..." id="email" class="form-control"  ng-model="formData.userEmail">
-                    <span class="help-block" ng-show="errorEmail"></span>
-                    <button type="submit" class="btn btn-primary">Contact me</button>
-                    <input type="hidden" value="zu5_SjI2cD0" name="_csrf">
-                </form>
+                <!--<form ng-submit="contactMeForm()" class="cta-form cta-form-sm">-->
+                    <!--<input type="email" name="userEmail" required="" placeholder="your email..." id="email" class="form-control"  ng-model="formData.userEmail">-->
+                    <!--<span class="help-block" ng-show="errorEmail"></span>-->
+                    <!--<button type="submit" class="btn btn-primary">Contact me</button>-->
+                    <!--<input type="hidden" value="zu5_SjI2cD0" name="_csrf">-->
+                <!--</form>-->
+                <div class="contact-info-container">
+                    <p class="mobile">Mobile: SK: +421 904 116 130</p>
+                    <p class="email">Email: <a href="mailto:peter.vidis@gmail.com">peter.vidis@gmail.com</a></p>
+
+                </div>
             </div>
             <div class="social__container">
 
