@@ -135,7 +135,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
           {
               title : "About",
               className : "about",
-              action : "#/list/details"
+              action : "#/details"
           }
       ]; // end menus
 

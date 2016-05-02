@@ -22,7 +22,7 @@ app.config(['$routeProvider',
         templateUrl: 'pages/expenses.html',
         controller: 'ExpensesListCtrl'
       }).
-      when('/list/details', {
+      when('/details', {
         templateUrl: 'pages/about.html',
         controller: 'ProductDetailCtrl'
       }).

@@ -1,0 +1,222 @@
+#profile{
+    margin-top: 20px;
+}
+#profile .nav-profile ol, #profile .nav-profile ul {
+    list-style-type: circle;
+    padding-left: 15px;
+}
+.vcard, .article-vcard{
+    background: #fff none repeat scroll 0 0;
+    border: 0 none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), -1px 0 0 rgba(0, 0, 0, 0.03), 1px 0 0 rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding: 5px 10px 5px 15px;
+}
+.article-vcard{
+    margin-right: 10px;
+    width: 40%;
+}
+.top-card {
+    font-size: 12px;
+    position: relative;
+    /*width: 60%;*/
+}
+#profile-left{
+    float: left;
+    width: 60%;
+}
+#profile-right{
+    float: right;
+    margin-left: 10px;
+    width: 39%;
+}
+#profile .profile-articles{
+    display: inline-flex;
+}
+.profile-card::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.profile-card .profile-picture {
+    background: #f4f4f4 none repeat scroll 0 0;
+    float: left;
+    height: 200px;
+    line-height: 199px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 200px;
+    z-index: 1;
+}
+.profile-card .profile-overview::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.profile-card .profile-overview {
+    float: left;
+    margin: 0 0 0 35px;
+    padding: 0 20px 20px;
+    position: relative;
+    width: 405px;
+    word-wrap: break-word;
+    z-index: 6;
+}
+
+.profile-card .profile-overview-content {
+    min-height: 149px;
+    padding-bottom: 15px;
+    /*padding-top: 20px;*/
+}
+
+.public-profile #top-card .masthead {
+    padding-left: 0;
+    padding-right: 70px;
+}
+
+.profile-card table {
+    margin: 10px 0 0;
+}
+
+/*.profile-top-card {*/
+    /*background: #fff none repeat scroll 0 0;*/
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), -1px 0 0 rgba(0, 0, 0, 0.03), 1px 0 0 rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.12);*/
+    /*margin-bottom: 10px;*/
+    /*margin-top: 0;*/
+/*}*/
+
+.profile-card .profile-picture {
+    background: #f4f4f4 none repeat scroll 0 0;
+    float: left;
+    height: 200px;
+    line-height: 199px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 200px;
+    z-index: 1;
+}
+
+.profile-picture > a {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.profile-card .profile-picture img {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px #f4f4f4;
+    vertical-align: middle;
+}
+
+.top-card .member-connections {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.member-connections {
+    color: #999;
+    float: right;
+    font-size: 11px;
+    line-height: 15px;
+    padding: 7px 0 0 10px;
+    text-align: right;
+    vertical-align: bottom;
+}
+
+.member-connections strong {
+    color: #333;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 14px;
+}
+.profile-card .profile-overview {
+    word-wrap: break-word;
+}
+.profile-card th {
+    color: #999;
+    font-size: 11px;
+    padding: 2px 20px 0 0;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.top-card .profile-overview th, .top-card .profile-overview td {
+    margin-bottom: 3px;
+}
+.profile-card th + td {
+    padding-top: 2px;
+}
+.profile-card td {
+    padding-top: 1px;
+}
+
+ol, ul {
+    /*list-style: outside none none;*/
+}
+
+.profile-card table li a {
+    color: #333;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    text-decoration: none;
+}
+
+
+/*#profile #background-experience-container {*/
+    /*background: #fff none repeat scroll 0 0;*/
+    /*border: 0 none;*/
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), -1px 0 0 rgba(0, 0, 0, 0.03), 1px 0 0 rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.12);*/
+    /*margin-bottom: 10px;*/
+    /*margin-top: 0;*/
+    /*padding: 5px 10px 5px 15px;*/
+    /*!*width: 60%;*!*/
+/*}*/
+#profile h5 a {
+    color: #434649;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    text-decoration: none;
+}
+
+#profile .background-section .experience-logo, #profile .background-section .certification-logo, #profile .background-section .education-logo, #profile .background-section .volunteering-logo {
+    float: right;
+    text-align: center;
+    width: 100px;
+}
+#profile .background-section h5 {
+    color: #434649;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+#profile .background-section .experience-date-locale{
+    color: #66696a;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    padding-bottom: 15px;
+    padding-top: 0;
+}
+/*#profile #aux{*/
+    /*background: #fff none repeat scroll 0 0;*/
+    /*border: 0 none;*/
+    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), -1px 0 0 rgba(0, 0, 0, 0.03), 1px 0 0 rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.12);*/
+    /*margin-bottom: 10px;*/
+    /*margin-top: 0;*/
+    /*padding: 5px 10px 5px 15px;*/
+    /*!*width: 30%;*!*/
+/*}*/
