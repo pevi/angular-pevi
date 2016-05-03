@@ -142,25 +142,30 @@
     word-wrap: break-word;
 }
 .profile-card th {
-    color: #999;
+    /*color: #999;*/
     font-size: 11px;
     padding: 2px 20px 0 0;
     vertical-align: top;
     white-space: nowrap;
 }
-
+.profile-card th:hover{
+    cursor: default;
+}
+.profile-card tr:hover{
+    background-color: transparent;
+}
 .top-card .profile-overview th, .top-card .profile-overview td {
     margin-bottom: 3px;
 }
 .profile-card th + td {
-    padding-top: 2px;
+    /*padding-top: 2px;*/
 }
 .profile-card td {
-    padding-top: 1px;
+    /*padding-top: 1px;*/
 }
 
 ol, ul {
-    /*list-style: outside none none;*/
+    list-style: outside none none;
 }
 
 .profile-card table li a {
@@ -211,12 +216,43 @@ ol, ul {
     padding-bottom: 15px;
     padding-top: 0;
 }
-/*#profile #aux{*/
-    /*background: #fff none repeat scroll 0 0;*/
-    /*border: 0 none;*/
-    /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), -1px 0 0 rgba(0, 0, 0, 0.03), 1px 0 0 rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.12);*/
-    /*margin-bottom: 10px;*/
-    /*margin-top: 0;*/
-    /*padding: 5px 10px 5px 15px;*/
-    /*!*width: 30%;*!*/
-/*}*/
+
+#demographics a{
+    color: #000;
+}
+#demographics a i{
+    color: #007eb1;
+}
+#demographics .editable-click, #demographics a.editable-click{
+    border-bottom: none;
+    /*color: #000000;*/
+}
+#demographics a.education-editable:hover{
+    background-color: #f2f2f2;
+    border: 1px solid #cccfd3;
+    padding: 3px 8px;
+}
+#demographics a.education-editable .edit-icon-hoverable{
+    display: none;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: -4px;
+    padding: 2px 2px 2px 2px;
+    position: absolute;
+}
+#demographics a.education-editable:hover .edit-icon-hoverable{
+    background-color: #f2f2f2;
+    display: inline-block;
+    border: 1px solid #cccfd3;
+    padding: 2px;
+}
+#demographics dd{
+    margin-bottom: 5px;
+}
+#demographics dt{
+    /*padding-left: 8px;*/
+}
+#demographics dd a{
+    border: 1px solid transparent;
+    padding-left: 8px;
+}

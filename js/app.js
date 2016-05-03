@@ -4,7 +4,7 @@ var app = angular.module('peviApp', [
 	'ngRoute',
   'productControllers',
     'directives',
-  'productFilters', 'ngSanitize'
+  'productFilters', 'ngSanitize', 'xeditable'
   ]);
 
 app.config(['$routeProvider',
@@ -28,7 +28,7 @@ app.config(['$routeProvider',
     }).
       when('/details', {
         templateUrl: 'pages/about.html',
-        controller: 'ProductDetailCtrl'
+        controller: 'AboutCtrl'
       }).
       when('/ha', {
         templateUrl: 'pages/ha.html',
@@ -42,4 +42,8 @@ app.config(['$routeProvider',
         redirectTo: '/intro'
       });
   }]);
+
+app.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+});
 

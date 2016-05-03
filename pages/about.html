@@ -73,30 +73,36 @@
                                                 <div class="editable-item" id="location">
                                                     <dl>
                                                         <dt>Location</dt>
-                                                        <dd><span class="locality">Slovak Republic</span></dd>
+                                                        <dd><a title="" class=education-editable
+                                                               href="#" editable-text="education.location">{{ education.location || 'empty' }}
+                                                            <i class="material-icons medium left edit-icon-hoverable">edit</i></a></dd>
                                                         <dt>Industry</dt>
-                                                        <dd class="industry">Computer Software</dd>
+                                                        <dd><a title="" class=education-editable
+                                                                                href="#" editable-text="education.computerSoftware">{{ education.computerSoftware || 'empty' }}
+                                                            <i class="material-icons medium left edit-icon-hoverable">edit</i></a></dd>
+                                                        <dt>Education</dt>
+                                                        <dd><a title="" class=education-editable
+                                                                                 href="#" editable-text="education.schoolName">{{ education.schoolName || 'empty' }}
+                                                            <i class="material-icons medium left edit-icon-hoverable">edit</i></a></dd>
                                                     </dl>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <table summary="Overview for Peter Vidiš">
-                                    <tbody>
-                                    <tr id="overview-summary-education">
-                                        <th scope="row">Education</th>
-                                        <td>
-                                            <ol>
-                                                <li><a title="More details for this school"
-                                                       href="https://www.linkedin.com/edu/school?id=17132&trk=ppro_sprof">Technická
-                                                    univerzita v
-                                                    Košiciach</a></li>
-                                            </ol>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <!--<table summary="Overview for Peter Vidiš">-->
+                                    <!--<tbody>-->
+                                    <!--<tr id="overview-summary-education">-->
+                                        <!--<th scope="row">Education</th>-->
+                                        <!--<td>-->
+                                            <!--<ol>-->
+                                                <!--<li ng-controller="AboutCtrl"><a title="More details for this school" class={{education}}-->
+                                                       <!--href="#" editable-text="education.schoolName">{{ education.schoolName || 'empty' }}</a></li>-->
+                                            <!--</ol>-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--</tbody>-->
+                                <!--</table>-->
                             </div>
                             <div class="profile-aux">
                                 <div class="member-connections"><a
@@ -119,7 +125,7 @@
                                         href="https://www.linkedin.com/title/software-engineer?trk=pprofile_title">Software
                                     Engineer</a></h4><h5><a dir="auto" href="/company/2829?trk=ppro_cprof">Software AG</a>
                                 </h5></header>
-                            <span class="experience-date-locale"><time>September 2010</time> &ndash; Present (5 years 9 months)<span
+                            <span class="experience-date-locale"><time>September 2010</time> &ndash; Present ({{workedSince.workedFor}})<span
                                     class="locality">Košice, Slovakia</span></span>
                                 <p dir="ltr" class="description summary-field-show-more">First two years I was working as QM
                                     Specialist. My work was mainly focused for daily testing of our product, which is ARIS
@@ -144,10 +150,6 @@
             <div id="profile-right">
                 <div id="aux" class="vcard">
                     <div class="insights">
-                        <script type="text/javascript">fs._server.fire("profile_v2_vanity_url_settings", {
-                            event: "before",
-                            type: "html"
-                        });</script>
                         <hr>
                         <div class="vanity-url-form">
                             <form class="no-vanity-url" method="POST" name="vanityUrlForm"
@@ -182,14 +184,6 @@
                                                                             id="sourceAlias-vanityUrlForm"><input
                                         type="hidden" value="en_US" name="locale" id="locale-vanityUrlForm"></form>
                         </div>
-                        <script type="text/javascript">fs._server.fire("profile_v2_vanity_url_settings", {
-                            event: "after",
-                            type: "html"
-                        });</script>
-                        <script type="text/javascript">fs._server.fire("profile_v2_public_profile_settings", {
-                            event: "before",
-                            type: "html"
-                        });</script>
                         <hr>
                         <div class="public-profile-badge">
                             <hr>

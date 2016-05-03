@@ -87,6 +87,8 @@ productControllers.controller('ExpensesListCtrl', ['$scope', '$uibModal', '$http
           });
           //$uibModalInstance.close();
       };
+
+
   }]);
 
 
@@ -378,11 +380,48 @@ var ModalInstanceCtrl = function ($scope, $uibModalInstance, items, $http, expen
 
 
 
-productControllers.controller('ProductDetailCtrl', ['$scope', '$routeParams', '$http',
-  function($scope, $routeParams, $http) {
-    $http.get('products/' + $routeParams.phoneId + '.json').success(function(data) {
-      $scope.phone = data;
-    });
+productControllers.controller('AboutCtrl', ['$scope',
+  function($scope) {
+
+      function calcDate(date1,date2) {
+
+          var past = new Date('2010-09-01');
+          var diff = new Date(new Date() - past);
+          // alert((difdt.toISOString().slice(0, 4) - 1970) + "Y " + (difdt.getMonth()+1) + "M " + difdt.getDate() + "D");
+
+          // var message = date2.toDateString();
+          var message = "";
+          // message += " was "
+          // message += days + " days "
+          // message += months + " months "
+
+          // message += years + " years "
+          // message += realMonths + " months \n"
+
+          // message += (difdt.toISOString().slice(0, 4) - 1970) + " years " + (difdt.getMonth()+1) + " months " + difdt.getDate() + "D";
+          message += (diff.toISOString().slice(0, 4) - 1970) + " years " + (diff.getMonth()+1) + " months";
+
+          // console.log(message)
+
+          return message
+      }
+
+      $scope.education = {
+          location: 'Slovak Republic',
+          computerSoftware: 'Computer Software',
+          schoolName: 'Technická univerzita v Košiciach'
+      };
+
+      $scope.workedSince = {
+          workedFor: calcDate()
+      }
+
+
+
+
+    // $http.get('products/' + $routeParams.phoneId + '.json').success(function(data) {
+    //   $scope.phone = data;
+    // });
   }]);
 
 productControllers.controller('SendMailCtrl', ['$scope', '$http', '$timeout',

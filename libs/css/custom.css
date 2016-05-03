@@ -810,3 +810,9 @@ body #toTop::before {
     border:8px solid transparent;
     border-bottom-color:#ffffff
 }
+.editable-buttons .btn{
+    padding: 3px 6px;
+}
+.editable-controls input{
+    height: 29px;
+}

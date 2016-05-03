@@ -2,7 +2,7 @@
 
 var directives = angular.module('directives', ['ui.bootstrap']);
 directives.directive('tooltipLoader', function() {
-    return function(scope, element, attrs) {
+    return function(scope, element) {
 
         element.tooltip({
             effect: 'slide',
