@@ -17,6 +17,25 @@ class Category{
     }
 
         // read products
+function readAllCategories(){
+
+    // select all query
+    $query = "SELECT
+                id_cat, cat_name, cat_desc, cat_priority
+            FROM
+                " . $this->category_table . "
+            ORDER BY
+                id_cat ASC";
+
+    // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+
+    // execute query
+    $stmt->execute();
+
+    return $stmt;
+}
+        // read products
 function readAll(){
 
     // select all query

@@ -76,7 +76,7 @@ body{
 	background-color: #0899cc;
 }
 /*  Table css */
-.pevi-content table {
+.pevi-content table, #pevi-content table {
 	/*background-color: transparent;*/
 	background-color: rgba(255, 255, 255, 0.95);
     /*box-shadow: 1px 1px 10px 5px rgba(255, 255, 255, 0.85);*/
@@ -746,4 +746,67 @@ form, fieldset {
     font-size: 15px;
     font-weight: normal;
     color: #747474;
+}
+/*.ng-scope .container .breadcrumb {*/
+    /*margin-top: 20px;*/
+/*}*/
+.ng-scope .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.container-navigation{
+    margin-top: 20px;
+}
+.container-navigation h5{
+    font-weight:normal;
+}
+.container-navigation .breadcrumb{
+    margin-top: 0;
+    margin-bottom: 0 !important;
+}
+
+#toTop {
+    display: inline;
+}
+body #toTop::before {
+    color: #fff;
+}
+#toTop::before {
+    /*content: "";*/
+    /*font-family: "icomoon";*/
+    /*font-size: 22px;*/
+    /*line-height: 35px;*/
+}
+#toTop {
+    background-color: #333333;
+    border-radius: 4px 4px 0 0;
+    bottom: 0;
+    color: #ffffff;
+    display: none;
+    height: 35px;
+    opacity: 0.9;
+    position: fixed;
+    right: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out 0s;
+    width: 48px;
+    z-index: 10000;
+}
+#toTopHover {
+    /*display: block;*/
+    /*float: left;*/
+    /*opacity: 0;*/
+    /*overflow: hidden;*/
+}
+#toTop span {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-8px;
+    margin-top:-12px;
+    height:0;
+    width:0;
+    border:8px solid transparent;
+    border-bottom-color:#ffffff
 }

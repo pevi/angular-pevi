@@ -1,0 +1,48 @@
+<div class="container" ng-app="peviApp">
+    <div class="categories pevi-content">
+        <div class="container-navigation">
+            <h5>Navigation:</h5>
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#/expenses">Expenses</a></li>
+                <li><a href="#">Categories</a></li>
+            </ul>
+        </div>
+
+        <h3>Categories</h3>
+
+        <div class="control">
+            <!-- used for searching the current list -->
+            <input type="text" ng-model="search" class="form-control search" placeholder="Search category...">
+            <!-- floating button for creating product -->
+        </div>
+
+        <!-- table that shows product record list -->
+        <table class="hoverable bordered">
+            <thead>
+            <tr>
+                <!--<th class="text-align-center">ID</th>-->
+                <th class="width-10-pct" ng-click="order('name')">Name<span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span></th>
+                <th class="width-15-pct" ng-click="order('description')">Description<span class="sortorder" ng-show="predicate === 'description'" ng-class="{reverse:reverse}"></span></th>
+                <th class="text-align-left width-15-pct" ng-click="order('priority')">Priority<span class="sortorder" ng-show="predicate === 'cat_priority'" ng-class="{reverse:reverse}"></span></th>
+                <th class="text-align-center width-20-pct">Action</th>
+            </tr>
+            </thead>
+            <tbody ng-init="getAllCategories()">
+            <tr ng-repeat="c in categories | filter:search | orderBy:predicate:reverse">
+                <!--<td class="text-align-center">{{ d.id }}</td>-->
+                <td>{{ c.name }}</td>
+                <td>{{ c.description }}</td>
+                <td>{{ c.cat_priority }}</td>
+                <td class="text-align-center">
+                    <a ng-click="editExpense(d.id, categories)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Edit" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">edit</i></a>
+                    <a ng-click="deleteExpense(d.id)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Delete" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">delete</i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>

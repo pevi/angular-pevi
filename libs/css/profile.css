@@ -15,7 +15,7 @@
 }
 .article-vcard{
     margin-right: 10px;
-    width: 40%;
+    width: 30%;
 }
 .top-card {
     font-size: 12px;
@@ -27,9 +27,9 @@
     width: 60%;
 }
 #profile-right{
-    float: right;
+    float: left;
     margin-left: 10px;
-    width: 39%;
+    width: 33%;
 }
 #profile .profile-articles{
     display: inline-flex;

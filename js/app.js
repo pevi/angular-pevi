@@ -22,11 +22,15 @@ app.config(['$routeProvider',
         templateUrl: 'pages/expenses.html',
         controller: 'ExpensesListCtrl'
       }).
+    when('/categories', {
+      templateUrl: 'pages/categories.html',
+      controller: 'CategoriesListCtrl'
+    }).
       when('/details', {
         templateUrl: 'pages/about.html',
         controller: 'ProductDetailCtrl'
       }).
-      when('/list/ha', {
+      when('/ha', {
         templateUrl: 'pages/ha.html',
         controller: 'ProductDetailCtrl'
       }).

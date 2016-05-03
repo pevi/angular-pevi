@@ -53,32 +53,18 @@
         jQuery("a.custom-tooltip").tooltip({ effect: 'slide'});
     });
 
-//    $(document).ready(function() {
-//        (function() {
-//            //settings
-//            var fadeSpeed = 200, fadeTo = 0.5, topDistance = 30;
-//            var topbarME = function() { $('#pevi-navbar').fadeTo(fadeSpeed,1); },
-//                    topbarML = function() { $('#pevi-navbar').fadeTo(fadeSpeed,fadeTo); };
-//            var inside = false;
-//            //do
-//            $(window).scroll(function() {
-//                position = $(window).scrollTop();
-//                if(position > topDistance && !inside) {
-//                    //add events
-//                    topbarML();
-//                    $('#pevi-navbar').bind('mouseenter',topbarME);
-//                    $('#pevi-navbar').bind('mouseleave',topbarML);
-//                    inside = true;
-//                }
-//                else if (position < topDistance){
-//                    topbarME();
-//                    $('#pevi-navbar').unbind('mouseenter',topbarME);
-//                    $('#pevi-navbar').unbind('mouseleave',topbarML);
-//                    inside = false;
-//                }
-//            });
-//        })();
-//    });
+    jQuery(document).scroll(function() {
+        if ( jQuery(document).scrollTop() > 300 ) {
+            jQuery('#toTop').fadeIn('slow');
+        } else {
+            jQuery('#toTop').fadeOut('slow');
+        }
+    });
+    jQuery('#toTop').click(function() {
+        jQuery("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
+
 </script>
 <body>
 
@@ -99,6 +85,12 @@
             <div ng-include src="'pages/footer.html'"></div>
         </div>
     </footer>
+
+    <div class="to-top-container" ng-controller="ScrollCtrl">
+        <a id="toTop" ng-click="gotoTop()" href="javascript:void(0);"  style="display: none;padding-top: 5px;">
+            <i id="toTopHover" class="large material-icons">keyboard_arrow_up</i>
+        </a><span></span>
+    </div>
 
 	
 </body>

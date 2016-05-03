@@ -11,6 +11,7 @@ productControllers.controller('ExpensesListCtrl', ['$scope', '$uibModal', '$http
               $scope.names = response.records;
           });
       };
+
       $http.get("read_categories.php").success(function (response) {
         $scope.categories = response.options;
       });
@@ -116,7 +117,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
                   },
                   {
                       title : "Categories",
-                      action : "#/item.two"
+                      action : "#/categories"
                   },
                   {
                       divider: true
@@ -130,7 +131,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
           {
               title : "HA",
               className : "ha",
-              action : "#/list/ha"
+              action : "#/ha"
           },
           {
               title : "About",
@@ -147,10 +148,10 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
     
     $scope.navfn = function(action){
         switch(action){
-            case '#/list/ha':
+            case '#/ha':
               $scope.activemenu = "ha";
               break;
-            case '#/list/details':
+            case '#/details':
               $scope.activemenu = "about";
               break;
             default:
@@ -415,3 +416,34 @@ productControllers.controller('SendMailCtrl', ['$scope', '$http', '$timeout',
 
         };
     }]);
+
+//productControllers.controller('CategoriesListCtrl', ['$scope', '$routeParams', '$http',
+//    function($scope, $routeParams, $http) {
+//        $http.get('products/' + $routeParams.phoneId + '.json').success(function(data) {
+//            $scope.phone = data;
+//        });
+//    }]);
+
+
+
+productControllers.controller('ScrollCtrl', ['$scope', '$location', '$anchorScroll',
+        function ($scope, $location, $anchorScroll) {
+            $scope.gotoTop = function() {
+                // set the location.hash to the id of
+                // the element you wish to scroll to.
+                $location.hash();
+
+                // call $anchorScroll()
+                $anchorScroll();
+            };
+        }]);
+
+
+productControllers.controller('CategoriesListCtrl', ['$scope', '$uibModal', '$http',
+        function ($scope, $location, $http){
+            $scope.getAllCategories = function () {
+                $http.get("read_all_categories.php").success(function (response) {
+                    $scope.categories = response.records;
+                });
+            };
+        }]);
