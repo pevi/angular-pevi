@@ -380,8 +380,8 @@ var ModalInstanceCtrl = function ($scope, $uibModalInstance, items, $http, expen
 
 
 
-productControllers.controller('AboutCtrl', ['$scope',
-  function($scope) {
+productControllers.controller('AboutCtrl', ['$scope', '$http',
+  function($scope, $http) {
 
       function calcDate() {
 
@@ -416,6 +416,9 @@ productControllers.controller('AboutCtrl', ['$scope',
           workedFor: calcDate()
       };
 
+      $scope.updateField = function() {
+          return $http.post('/updateField', $scope.user);
+      };
 
 
 

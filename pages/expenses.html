@@ -1,13 +1,29 @@
 <div class="container" ng-app="peviApp">
 
-    <div class="container-navigation">
-        <h5>Navigation:</h5>
-        <ul class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Expenses</a></li>
+    <!--<div class="container-navigation">-->
+        <!--<h5>Navigation:</h5>-->
+        <!--<ul class="breadcrumb">-->
+            <!--<li><a href="#">Home</a></li>-->
+            <!--<li><a href="#">Expenses</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+    <div class="rcrumbs" id="breadcrumbs">
+        <ul>
+            <li><a href="#/intro">Home</a></li>
+            <li><a>Expenses</a></li>
+            <!--<li><a href="#">...</a><span class="divider">></span></li>-->
         </ul>
     </div>
-
+    <script>
+        jQuery(document).ready(function() {
+            $("#breadcrumbs").rcrumbs({
+                animation: {
+                    activated: true, speed: 200
+                }
+            });
+        });
+    </script>
 
     <!-- <div class="container" ng-controller="ProductListCtrl"> -->
 

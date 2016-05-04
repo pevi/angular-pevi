@@ -24,11 +24,11 @@
 }
 #profile-left{
     float: left;
-    width: 60%;
+    width: 66%;
 }
 #profile-right{
     float: left;
-    margin-left: 10px;
+    margin-left: 11px;
     width: 33%;
 }
 #profile .profile-articles{

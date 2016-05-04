@@ -1,12 +1,12 @@
 <div class="container" ng-app="peviApp">
 
-	<header>
-		<nav>
-			<ul>
-				<li>Home</li>
-			</ul>
-		</nav>
-	</header>
+    <div class="rcrumbs" id="breadcrumbs">
+        <ul>
+            <li><a href="#/intro">Home</a></li>
+            <li><a>Home</a></li>
+            <!--<li><a href="#">...</a><span class="divider">></span></li>-->
+        </ul>
+    </div>
 
 	<section>
 
@@ -32,6 +32,17 @@
 		<h2>About section</h2>
 		<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 	</aside>
+
+
+	<script>
+		jQuery(document).ready(function() {
+			$("#breadcrumbs").rcrumbs({
+				animation: {
+					activated: true, speed: 200
+				}
+			});
+		});
+	</script>
 
 
 </div> <!-- end container -->

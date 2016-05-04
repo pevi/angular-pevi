@@ -4,6 +4,34 @@ body{
     /*background-size:100%;*/
     font-family: Avenir,sans-serif !important;
 }
+.headerScrolledDown{
+    background-color: #007eb1;
+    opacity: .75;
+    transition: all 0.5s ease-out 0s;
+}
+#pevi-navbar.headerScrolledDown ul li a, #pevi-navbar.headerScrolledDown a.navbar-brand{
+    color: #fff !important;
+}
+.headerScrolledUp{
+    background-color: transparent;
+}
+#logo{
+    background: rgba(0, 0, 0, 0) url("../../images/sydney1.png") no-repeat scroll 0 0 / 100% auto;
+    box-shadow: 0 2px 13px rgba(0, 0, 0, 0.4);
+    height: 264px;
+    /*margin-top: 50px;*/
+}
+.ng-scope .show {
+    display: inline-block !important;
+}
+#pevi-content{
+    background-color: #f2f2f2;
+    margin: 25px auto;
+    min-height: 371px;
+}
+#pevi-content .rcrumbs{
+    /*margin-top: 20px;*/
+}
 .ng-scope body{
     background-color: #f2f2f2;
 }
@@ -29,7 +57,7 @@ body{
     transition: all 0.2s ease-out 0s;
 }
 #pevi-navbar{
-    box-shadow: 0 8px 13px rgba(0, 0, 0, 0.4);
+    /*box-shadow: 0 8px 13px rgba(0, 0, 0, 0.4);*/
     /*position:fixed;*/
     /*top:0;*/
     /*left:0;*/
@@ -42,21 +70,28 @@ body{
     width: 100%;
     height: 50px;
     z-index: 10;
+    transition: all 0.5s ease-out 0s;
 }
 #pevi-navbar .navbar-inverse{
-	/*background-color: #0899cc;*/
-	background-color: #007eb1;
+	background-color: transparent;
+	/*background-color: #007eb1;*/
 	border-color: transparent;
 	border-radius: 0;
 	color: #fff;
 
+}
+#pevi-navbar .nav > li {
+    display: block;
+    position: relative;
 }
 #pevi-navbar .navbar-inverse .navbar-brand, 
 #pevi-navbar .navbar-inverse .navbar-nav > li > a, 
 #pevi-navbar .navbar-inverse .navbar-nav > .open > a, 
 #pevi-navbar .navbar-inverse .navbar-nav > .open > a:focus, 
 #pevi-navbar .navbar-inverse .navbar-nav > .open > a:hover{
-	color: #fff;
+    /*border-top: 5px solid transparent;*/
+	/*color: #fff;*/
+	color: #000;
 	cursor: pointer;
 }
 #pevi-navbar .navbar-inverse .navbar-nav ul li a{
@@ -66,14 +101,36 @@ body{
 #pevi-navbar .navbar-inverse .navbar-nav > .open > a:focus, 
 #pevi-navbar .navbar-inverse .navbar-nav > .open > a:hover{
 	/*background-color: #196a94;*/
-	background-color: #0899cc;
+	/*background-color: #0899cc;*/
+	background-color: transparent;
 }
-
+#pevi-navbar ul li{
+    padding-right: 35px;
+    /*border-top: 5px solid transparent;*/
+}
+#pevi-navbar ul.dropdown-menu li{
+    padding-right: 0;
+    border-top: 0;
+}
+#pevi-navbar ul li a.home, #pevi-navbar ul li a.ha, #pevi-navbar ul li a.about{
+    border-top: 5px solid transparent;
+    line-height: 40px;
+    padding: 0 !important;
+}
+#pevi-navbar ul li a.home:hover, #pevi-navbar ul li a.ha:hover, #pevi-navbar ul li a.about:hover{
+    border-top: 5px solid #0899cc !important;
+    color: #0899cc !important;
+}
 #pevi-navbar div.dropdown .dropdown,
 #pevi-navbar div.ha .ha,
 #pevi-navbar div.about .about{
 	/*background-color:#196a94;*/
-	background-color: #0899cc;
+	/*background-color: #0899cc;*/
+
+    border-top: 5px solid #0899cc !important;
+    color: #0899cc !important;
+    display: block;
+    line-height: 40px;
 }
 /*  Table css */
 .pevi-content table, #pevi-content table {
@@ -303,11 +360,7 @@ a{
 .footer-right div p{
     text-align: center;
 }
-#pevi-content{
-    background-color: #f2f2f2;
-    margin: 60px auto;
-    min-height: 371px;
-}
+
 .pevi-content{
 }
 #SkypeButton_Call_pietrolorddoom_1 {
