@@ -232,19 +232,18 @@ ol, ul {
     border: 1px solid #cccfd3;
     padding: 3px 8px;
 }
-#demographics a.education-editable .edit-icon-hoverable{
-    display: none;
+#demographics .edit-icon-hoverable{
     font-size: 18px;
     margin-left: 10px;
     margin-top: -4px;
-    padding: 2px 2px 2px 2px;
-    position: absolute;
-}
-#demographics a.education-editable:hover .edit-icon-hoverable{
-    background-color: #f2f2f2;
-    display: inline-block;
-    border: 1px solid #cccfd3;
     padding: 2px;
+    position: absolute;
+    opacity: 0;
+}
+#demographics a:hover .edit-icon-hoverable{
+    background-color: #f2f2f2;
+    border: 1px solid #cccfd3;
+    opacity: 1;
 }
 #demographics dd{
     margin-bottom: 5px;
@@ -252,7 +251,7 @@ ol, ul {
 #demographics dt{
     /*padding-left: 8px;*/
 }
-#demographics dd a{
+#demographics dd a, #demographics dd.alink{
     border: 1px solid transparent;
     padding-left: 8px;
 }

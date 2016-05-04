@@ -408,13 +408,13 @@ productControllers.controller('AboutCtrl', ['$scope',
 
       $scope.education = {
           location: 'Slovak Republic',
-          computerSoftware: 'Computer Software',
+          computerSoftware: 'Computer Software, IT, Java Development',
           schoolName: 'Technická univerzita v Košiciach'
       };
 
       $scope.workedSince = {
           workedFor: calcDate()
-      }
+      };
 
 
 
