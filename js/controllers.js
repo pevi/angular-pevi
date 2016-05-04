@@ -383,7 +383,7 @@ var ModalInstanceCtrl = function ($scope, $uibModalInstance, items, $http, expen
 productControllers.controller('AboutCtrl', ['$scope',
   function($scope) {
 
-      function calcDate(date1,date2) {
+      function calcDate() {
 
           var past = new Date('2010-09-01');
           var diff = new Date(new Date() - past);
