@@ -6,7 +6,6 @@ var productControllers = angular.module('productControllers', ['ui.bootstrap']);
 
 productControllers.controller('ExpensesListCtrl', ['$scope', '$uibModal', '$http',
   function($scope, $uibModal, $http) {
-      var pathTitle = "";
       $scope.getAll = function () {
           $http.get("read_products.php").success(function (response) {
               $scope.names = response.records;
@@ -93,9 +92,8 @@ productControllers.controller('ExpensesListCtrl', ['$scope', '$uibModal', '$http
   }]);
 
 
-
-productControllers.controller('MenuCtrl', ['$scope', '$location',
-  function($scope, $location) {
+productControllers.controller('MenuCtrl', ['$scope', '$location', '$rootScope',
+  function($scope, $location, $rootScope) {
 
       $scope.angledSearch = {
         show : true,
@@ -105,7 +103,8 @@ productControllers.controller('MenuCtrl', ['$scope', '$location',
       //$scope.brand = "<i class='material-icons md-light left home-icon'>euro_symbol</i>";
       $scope.brand = "<span class='brand'>Expensify</span>";
       $scope.inverse = true;
-      $scope.activemenu = "home";
+      $scope.activemenu = $location.path().split("/")[1] || "home";
+
       $scope.menus = [
           {
               title : "Select expenses",
@@ -138,7 +137,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$location',
           },
           {
               title : "About",
-              className : "about",
+              className : "details",
               action : "#/details"
           }
       ]; // end menus
@@ -152,33 +151,45 @@ productControllers.controller('MenuCtrl', ['$scope', '$location',
 
 
     $scope.navfn = function(action){
-        this.pathTitle = action;
         switch(action){
             case '#/ha':
               $scope.activemenu = "ha";
                 $scope.pageTitle = "Hockeyarena";
               break;
             case '#/details':
-              $scope.activemenu = "about";
+              $scope.activemenu = "details";
                 $scope.pageTitle = "About me";
               break;
             case '#/expenses':
                 $scope.activemenu = "expenses";
                 $scope.pageTitle = "Expenses";
                 break;
+            case '#/categories':
+                $scope.activemenu = "categories";
+                $scope.pageTitle = "Categories";
+                break;
             default:
               $scope.activemenu = "home";
                 $scope.pageTitle = "Home";
               break;
         }; // end switch
-        console.log(this.pathTitle);
+        // console.log(this.pathTitle);
+
+        $rootScope.$emit('navClickedEvent', $scope.pageTitle);
+
         window.location.href = action;
-        //window.location.reload();
+        // window.location.reload();
 
     }; // end navfn
 
+      $rootScope.$on('crumbClickedEvent', function(event, data) {
+          $scope.activemenu = data;
+
+      });
+
 
   }]);
+
 
 /**
  * Angled Navbar Directive
@@ -398,26 +409,13 @@ var ModalInstanceCtrl = function ($scope, $uibModalInstance, items, $http, expen
 
 productControllers.controller('AboutCtrl', ['$scope', '$http',
   function($scope, $http) {
-
       function calcDate() {
-
           var past = new Date('2010-09-01');
           var diff = new Date(new Date() - past);
-          // alert((difdt.toISOString().slice(0, 4) - 1970) + "Y " + (difdt.getMonth()+1) + "M " + difdt.getDate() + "D");
-
-          // var message = date2.toDateString();
           var message = "";
-          // message += " was "
-          // message += days + " days "
-          // message += months + " months "
-
-          // message += years + " years "
-          // message += realMonths + " months \n"
 
           // message += (difdt.toISOString().slice(0, 4) - 1970) + " years " + (difdt.getMonth()+1) + " months " + difdt.getDate() + "D";
           message += (diff.toISOString().slice(0, 4) - 1970) + " years " + (diff.getMonth()+1) + " months";
-
-          // console.log(message)
 
           return message
       }
@@ -436,11 +434,6 @@ productControllers.controller('AboutCtrl', ['$scope', '$http',
           return $http.post('/updateField', $scope.user);
       };
 
-
-
-    // $http.get('products/' + $routeParams.phoneId + '.json').success(function(data) {
-    //   $scope.phone = data;
-    // });
   }]);
 
 productControllers.controller('SendMailCtrl', ['$scope', '$http', '$timeout',
@@ -506,8 +499,15 @@ productControllers.controller('CategoriesListCtrl', ['$scope', '$uibModal', '$ht
             };
         }]);
 
-productControllers.controller('PathCtrl', ['$scope', '$location',
-    function ($scope, $location){
+productControllers.controller('PathCtrl', ['$scope', '$location', '$rootScope',
+    function ($scope, $location, $rootScope){
+        $scope.crumbHome = function(path){
+            $rootScope.$emit('crumbClickedEvent', 'home');
+            $scope.pageTitle = 'Home';
+
+            // window.location.href = path;
+            // window.location.reload();
+        };
         //path will be /person/show/321/, and array looks like: ["","person","show","321",""]
         $scope.currentPath = $location.path().split("/")[1] || "Unknown";
         $scope.pageTitle = "Home";
@@ -525,5 +525,17 @@ productControllers.controller('PathCtrl', ['$scope', '$location',
                 $scope.pageTitle = "Home";
                 break;
         }; // end switch
-        console.log($scope.pageTitle);
+
+        $rootScope.$on('navClickedEvent', function(event, data) {
+            $scope.pageTitle = data;
+        });
+
+    }]);
+
+productControllers.controller('HaCtrl', ['$scope', '$uibModal', '$http',
+    function ($scope, $location, $http){
+    }]);
+
+productControllers.controller('IntroCtrl', ['$scope', '$uibModal', '$http',
+    function ($scope, $location, $http){
     }]);

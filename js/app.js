@@ -10,17 +10,15 @@ var app = angular.module('peviApp', [
 app.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
 
-    //$locationProvider.html5Mode(true);
-
     // For any unmatched url, redirect to /state1
-    $routeProvider.otherwise("/");
+    $routeProvider.otherwise("/intro");
 
     $routeProvider.
-      when('/', {
+      when('/intro', {
         templateUrl: 'pages/intro.html',
-        controller: 'ExpensesListCtrl'
+        controller: 'IntroCtrl'
       }).
-      when('/expenses/', {
+      when('/expenses', {
         templateUrl: 'pages/expenses.html',
         controller: 'ExpensesListCtrl'
       }).
@@ -34,17 +32,36 @@ app.config(['$routeProvider', '$locationProvider',
       }).
       when('/ha', {
         templateUrl: 'pages/ha.html',
-        controller: 'ProductDetailCtrl'
+        controller: 'HaCtrl'
       }).
       when('/contact-me', {
         templateUrl: 'pages/contact.html',
         controller: 'SendMailCtrl'
       }).
       otherwise({
-        redirectTo: '/'
+        redirectTo: '/intro'
       });
 
+    // $locationProvider.html5Mode(true);
+
   }]);
+
+app.factory('peviService', function($rootScope) {
+  var sharedService = {};
+
+  sharedService.pageTitle = '';
+
+  sharedService.prepForBroadcast = function(msg) {
+    this.pageTitle = msg;
+    this.broadcastItem();
+  };
+
+  sharedService.broadcastItem = function() {
+    $rootScope.$broadcast('handleBroadcast');
+  };
+
+  return sharedService;
+});
 
 app.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'

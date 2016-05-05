@@ -112,18 +112,20 @@ body{
     padding-right: 0;
     border-top: 0;
 }
-#pevi-navbar ul li a.home, #pevi-navbar ul li a.ha, #pevi-navbar ul li a.about{
+#pevi-navbar ul li a.home, #pevi-navbar ul li a.ha, #pevi-navbar ul li a.details{
     border-top: 5px solid transparent;
     line-height: 40px;
     padding: 0 !important;
 }
-#pevi-navbar ul li a.home:hover, #pevi-navbar ul li a.ha:hover, #pevi-navbar ul li a.about:hover{
+#pevi-navbar ul li a.home:hover, #pevi-navbar ul li a.ha:hover, #pevi-navbar ul li a.details:hover{
     border-top: 5px solid #0899cc !important;
     color: #0899cc !important;
 }
 #pevi-navbar div.dropdown .dropdown,
 #pevi-navbar div.ha .ha,
-#pevi-navbar div.about .about{
+#pevi-navbar div.details .details,
+#pevi-navbar div.details .expenses,
+#pevi-navbar div.details .categories{
 	/*background-color:#196a94;*/
 	/*background-color: #0899cc;*/
 
@@ -134,7 +136,7 @@ body{
 }
 #pevi-navbar.headerScrolledDown div.dropdown .dropdown,
 #pevi-navbar.headerScrolledDown div.ha .ha,
-#pevi-navbar.headerScrolledDown div.about .about{
+#pevi-navbar.headerScrolledDown div.details .details{
     border-top: 5px solid #fff !important;
     color: #fff !important;
 }
