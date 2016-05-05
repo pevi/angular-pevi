@@ -6,6 +6,7 @@ var productControllers = angular.module('productControllers', ['ui.bootstrap']);
 
 productControllers.controller('ExpensesListCtrl', ['$scope', '$uibModal', '$http',
   function($scope, $uibModal, $http) {
+      var pathTitle = "";
       $scope.getAll = function () {
           $http.get("read_products.php").success(function (response) {
               $scope.names = response.records;
@@ -93,8 +94,8 @@ productControllers.controller('ExpensesListCtrl', ['$scope', '$uibModal', '$http
 
 
 
-productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
-  function($scope) {
+productControllers.controller('MenuCtrl', ['$scope', '$location',
+  function($scope, $location) {
 
       $scope.angledSearch = {
         show : true,
@@ -146,22 +147,37 @@ productControllers.controller('MenuCtrl', ['$scope', '$uibModal', '$http',
     $scope.searchDisplay = 'Visible';
     $scope.searchfn = function(){
         alert('Attempting search on: "' + $scope.search.terms + '"');
-    }; 
-    
+    };
+      $scope.pageTitle = "Home";
+
+
     $scope.navfn = function(action){
+        this.pathTitle = action;
         switch(action){
             case '#/ha':
               $scope.activemenu = "ha";
+                $scope.pageTitle = "Hockeyarena";
               break;
             case '#/details':
               $scope.activemenu = "about";
+                $scope.pageTitle = "About me";
               break;
+            case '#/expenses':
+                $scope.activemenu = "expenses";
+                $scope.pageTitle = "Expenses";
+                break;
             default:
               $scope.activemenu = "home";
+                $scope.pageTitle = "Home";
               break;
         }; // end switch
+        console.log(this.pathTitle);
         window.location.href = action;
+        //window.location.reload();
+
     }; // end navfn
+
+
   }]);
 
 /**
@@ -489,3 +505,25 @@ productControllers.controller('CategoriesListCtrl', ['$scope', '$uibModal', '$ht
                 });
             };
         }]);
+
+productControllers.controller('PathCtrl', ['$scope', '$location',
+    function ($scope, $location){
+        //path will be /person/show/321/, and array looks like: ["","person","show","321",""]
+        $scope.currentPath = $location.path().split("/")[1] || "Unknown";
+        $scope.pageTitle = "Home";
+        switch($scope.currentPath){
+            case 'ha':
+                $scope.pageTitle = "Hockeyarena";
+                break;
+            case 'details':
+                $scope.pageTitle = "About me";
+                break;
+            case 'expenses':
+                $scope.pageTitle = "Expenses";
+                break;
+            default:
+                $scope.pageTitle = "Home";
+                break;
+        }; // end switch
+        console.log($scope.pageTitle);
+    }]);

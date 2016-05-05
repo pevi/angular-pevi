@@ -8,12 +8,34 @@ html {
   display: block;
   font-family: "Avenir",sans-serif;
   font-size: 14px;
+    height: 50px;
   /*font-weight: bold;*/
   /*line-height: 15px;*/
   margin: 0 0 15px;
   overflow: hidden;
   padding: 5px;
   white-space: nowrap;
+}
+.rcrumbs-row{
+    display: table;
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1170px;
+    overflow: hidden;
+    padding: 0 15px;
+    width: 100%;
+}
+.rcrumbs-title{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+.rcrumbs-title span{
+    font-size: 18px;
+}
+.rcrumbs-nav{
+    display: table-cell;
+    vertical-align: middle;
 }
 .ng-scope .show{
   display: flex !important;
@@ -34,7 +56,8 @@ html {
   background: rgba(0, 0, 0, 0) url("../../../images/Chevron.gif") no-repeat scroll 100% 0;
   display: flex;
   float: left;
-  font-size: 0.9167em;
+  /*font-size: 0.9167em;*/
+  font-size: 12px;
   height: 21px;
   line-height: 21px;
   margin: 0 6px 0 0;
@@ -46,7 +69,7 @@ html {
   background: none;
 }
 .rcrumbs ul {
-  display: block;
+  /*display: block;*/
   height: 21px;
   margin: 0;
   padding: 0;

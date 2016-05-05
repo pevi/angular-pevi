@@ -7,18 +7,20 @@ var app = angular.module('peviApp', [
   'productFilters', 'ngSanitize', 'xeditable'
   ]);
 
-app.config(['$routeProvider',
-  function($routeProvider) {
+app.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
+
+    //$locationProvider.html5Mode(true);
 
     // For any unmatched url, redirect to /state1
-    $routeProvider.otherwise("/intro");
+    $routeProvider.otherwise("/");
 
     $routeProvider.
-      when('/intro', {
+      when('/', {
         templateUrl: 'pages/intro.html',
         controller: 'ExpensesListCtrl'
       }).
-      when('/expenses', {
+      when('/expenses/', {
         templateUrl: 'pages/expenses.html',
         controller: 'ExpensesListCtrl'
       }).
@@ -39,8 +41,9 @@ app.config(['$routeProvider',
         controller: 'SendMailCtrl'
       }).
       otherwise({
-        redirectTo: '/intro'
+        redirectTo: '/'
       });
+
   }]);
 
 app.run(function(editableOptions) {

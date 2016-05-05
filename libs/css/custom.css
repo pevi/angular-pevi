@@ -6,7 +6,7 @@ body{
 }
 .headerScrolledDown{
     background-color: #007eb1;
-    opacity: .75;
+    /*opacity: .75;*/
     transition: all 0.5s ease-out 0s;
 }
 #pevi-navbar.headerScrolledDown ul li a, #pevi-navbar.headerScrolledDown a.navbar-brand{
@@ -16,7 +16,7 @@ body{
     background-color: transparent;
 }
 #logo{
-    background: rgba(0, 0, 0, 0) url("../../images/sydney1.png") no-repeat scroll 0 0 / 100% auto;
+    background: rgba(0, 0, 0, 0) url("../../images/sydney1.png") no-repeat scroll 0 0 / 100% 100%;
     box-shadow: 0 2px 13px rgba(0, 0, 0, 0.4);
     height: 264px;
     /*margin-top: 50px;*/
@@ -131,6 +131,12 @@ body{
     color: #0899cc !important;
     display: block;
     line-height: 40px;
+}
+#pevi-navbar.headerScrolledDown div.dropdown .dropdown,
+#pevi-navbar.headerScrolledDown div.ha .ha,
+#pevi-navbar.headerScrolledDown div.about .about{
+    border-top: 5px solid #fff !important;
+    color: #fff !important;
 }
 /*  Table css */
 .pevi-content table, #pevi-content table {
