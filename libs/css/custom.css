@@ -17,9 +17,9 @@ body{
 }
 #logo{
     background: rgba(0, 0, 0, 0) url("../../images/sydney1.png") no-repeat scroll 0 0 / 100% 100%;
-    box-shadow: 0 2px 13px rgba(0, 0, 0, 0.4);
+    /*box-shadow: 0 2px 13px rgba(0, 0, 0, 0.4);*/
     height: 264px;
-    /*margin-top: 50px;*/
+    margin-top: 50px;
 }
 .ng-scope .show {
     display: inline-block !important;
@@ -73,7 +73,9 @@ body{
     transition: all 0.5s ease-out 0s;
 }
 #pevi-navbar .navbar-inverse{
-	background-color: transparent;
+	/*background-color: transparent;*/
+    /*background-color: rgba(0, 126, 177, 1);*/
+    background-color: rgba(0, 0, 0, 0);
 	/*background-color: #007eb1;*/
 	border-color: transparent;
 	border-radius: 0;
@@ -90,7 +92,7 @@ body{
 #pevi-navbar .navbar-inverse .navbar-nav > .open > a:focus, 
 #pevi-navbar .navbar-inverse .navbar-nav > .open > a:hover{
     /*border-top: 5px solid transparent;*/
-	/*color: #fff;*/
+    /*color: #fff;*/
 	color: #000;
 	cursor: pointer;
 }
@@ -130,7 +132,9 @@ body{
 	/*background-color: #0899cc;*/
 
     border-top: 5px solid #0899cc !important;
+    /*border-top: 5px solid #004865 !important;*/
     color: #0899cc !important;
+    /*color: #004865 !important;*/
     display: block;
     line-height: 40px;
 }
