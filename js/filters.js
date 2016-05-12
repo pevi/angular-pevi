@@ -13,3 +13,9 @@ angular.module('productFilters', []).filter('currentdate',['$filter',  function(
     return $filter('date')(new Date(), 'yyyy');
   };
 }])
+
+app.filter('capitalize', function() {
+  return function(input) {
+    return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+  }
+});

@@ -15,6 +15,9 @@
             <!-- used for searching the current list -->
             <input type="text" ng-model="search" class="form-control search" placeholder="Search category...">
             <!-- floating button for creating product -->
+            <div class="fixed-action-btn" style="flex: 1 1 0; text-align: right;">
+                <a class="btn modal-trigger btn-floating btn-large add-category custom-tooltip" data-original-title="Add New Category" data-toggle="tooltip" data-placement="top"  ng-click="newCategory()"><i class="large material-icons">add</i></a>
+            </div>
         </div>
 
         <!-- table that shows product record list -->
@@ -29,11 +32,12 @@
             </tr>
             </thead>
             <tbody ng-init="getAllCategories()">
-            <tr ng-repeat="c in categories | filter:search | orderBy:predicate:reverse">
+            <!--<tr ng-repeat="c in categories | filter:search | orderBy:predicate:reverse">-->
+            <tr dir-paginate="c in categories|filter:search|orderBy:predicate:reverse|itemsPerPage:3">
                 <!--<td class="text-align-center">{{ d.id }}</td>-->
                 <td>{{ c.name }}</td>
                 <td>{{ c.description }}</td>
-                <td>{{ c.priority }}</td>
+                <td>{{ c.priority | capitalize}}</td>
                 <td class="text-align-center">
                     <a ng-click="editExpense(d.id, categories)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Edit" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">edit</i></a>
                     <a ng-click="deleteExpense(d.id)" class="waves-effect waves-light btn margin-bottom-1em custom-tooltip" tooltip-loader data-original-title="Delete" data-toggle="tooltip" data-placement="top"><i class="material-icons md-dark left">delete</i></a>
@@ -41,6 +45,49 @@
             </tr>
             </tbody>
         </table>
+        <dir-pagination-controls
+                max-size="3"
+                direction-links="true"
+                boundary-links="true" >
+        </dir-pagination-controls>
+
+        <script type="text/ng-template" id="categoryContent.html">
+            <div class="modal-header">
+                <h4 id="modal-product-title">Create new category</h4>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                    <div class="input-field col s12">
+                        <label for="name">Name</label>
+                        <input ng-model="name" type="text" class="validate" id="form-name" placeholder="Type name here..." />
+                    </div>
+                    <div class="input-field col s12">
+                        <label for="description">Description</label>
+                        <textarea ng-model="description" type="text" class="validate materialize-textarea" placeholder="Type description here..."></textarea>
+                    </div>
+                    <div class="input-field col s12">
+                        <label for="priority">Priority</label>
+                        <select ng-model="priority">
+                            <option value="low">Low</option>>
+                            <option value="medium">Medium</option>>
+                            <option value="high">High</option>>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" ng-click="createCategory()">Add category</button>
+                <button class="btn btn-cancel" ng-click="cancel()">Cancel</button>
+            </div>
+        </script>
+
+        <script>
+            jQuery(document).ready(function(){
+                jQuery("a.custom-tooltip").tooltip({
+                    effect: 'slide', container:'td'
+                });
+            });
+        </script>
     </div>
 
 

@@ -112,6 +112,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$location', '$rootScope',
               menu : [
                   {
                       title : "Expenses",
+                      subClassName : "expenses",
                       action : "#/expenses"
                   },
                   {
@@ -119,6 +120,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$location', '$rootScope',
                   },
                   {
                       title : "Categories",
+                      subClassName : "categories",
                       action : "#/categories"
                   },
                   {
@@ -126,6 +128,7 @@ productControllers.controller('MenuCtrl', ['$scope', '$location', '$rootScope',
                   },
                   {
                       title : "Expense/category builder",
+                      subClassName : "builder",
                       action : "#/item.three"
                   }
               ]
@@ -327,7 +330,7 @@ productControllers.directive('angledNavbar',function(){
 
 .run(function($templateCache){
   $templateCache.put('tmpls/nav/navbar.html',
-    '<nav class="navbar" ng-class="{\'navbar-inverse\': inverse,\'navbar-default\': !inverse,\'navbar-fixed-top\': affixed == \'top\',\'navbar-fixed-bottom\': affixed == \'bottom\'}" role="navigation"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"><span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" ng-click="home()" ng-bind-html="haveBranding()"></a></div><div class="collapse navbar-collapse {{activemenu}}" id="navbar-menu"><ul class="nav navbar-nav" ng-click="$event.preventDefault()" ng-if="hasMenus()"><li ng-repeat="menu in menus" ng-class="{true: \'dropdown\'}[hasDropdownMenu(menu)]"><a ng-if="!hasDropdownMenu(menu)" class="{{menu.className}}" ng-click="navAction(menu.action)">{{menu.title}}</a><a ng-if="hasDropdownMenu(menu)" class="dropdown-toggle {{menu.className}}" data-toggle="dropdown">{{menu.title}} <b class="caret"></b></a><ul ng-if="hasDropdownMenu(menu)" class="dropdown-menu"><li ng-repeat="item in menu.menu" ng-class="{true: \'divider\'}[isDivider(item)]"><a ng-if="!isDivider(item)" ng-click="navAction(item.action)">{{item.title}}</a></li></ul></li></ul><form ng-if="search.show" class="navbar-form navbar-right" role="search"><div class="form-group"><input type="text" class="form-control" placeholder="Search" ng-model="search.terms"><button class="btn btn-default" type="button" ng-click="searchfn()"><span class="glyphicon glyphicon-search"></span></button></div></form></div></div></nav>');
+    '<nav class="navbar" ng-class="{\'navbar-inverse\': inverse,\'navbar-default\': !inverse,\'navbar-fixed-top\': affixed == \'top\',\'navbar-fixed-bottom\': affixed == \'bottom\'}" role="navigation"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"><span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" ng-click="home()" ng-bind-html="haveBranding()"></a></div><div class="collapse navbar-collapse {{activemenu}}" id="navbar-menu"><ul class="nav navbar-nav" ng-click="$event.preventDefault()" ng-if="hasMenus()"><li ng-repeat="menu in menus" ng-class="{true: \'dropdown\'}[hasDropdownMenu(menu)]"><a ng-if="!hasDropdownMenu(menu)" class="{{menu.className}}" ng-click="navAction(menu.action)">{{menu.title}}</a><a ng-if="hasDropdownMenu(menu)" class="dropdown-toggle {{menu.className}}" data-toggle="dropdown">{{menu.title}} <b class="caret"></b></a><ul ng-if="hasDropdownMenu(menu)" class="dropdown-menu"><li ng-repeat="item in menu.menu" ng-class="{true: \'divider\'}[isDivider(item)]"><a ng-if="!isDivider(item)" class="{{item.subClassName}}" ng-click="navAction(item.action)">{{item.title}}</a></li></ul></li></ul><form ng-if="search.show" class="navbar-form navbar-right" role="search"><div class="form-group"><input type="text" class="form-control" placeholder="Search" ng-model="search.terms"><button class="btn btn-default" type="button" ng-click="searchfn()"><span class="glyphicon glyphicon-search"></span></button></div></form></div></div></nav>');
 });
 
 
@@ -402,6 +405,31 @@ var ModalInstanceCtrl = function ($scope, $uibModalInstance, items, $http, expen
 
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
+    };
+
+    if($scope.priority != ""){
+        $scope.priority = "low";
+    }
+    $scope.createCategory = function () {
+        // fields in key-value pairs
+        $http.post('create_category.php', {
+                'name' : $scope.name,
+                'description' : $scope.description,
+                'priority' : $scope.priority,
+            }
+        ).success(function (data, status, headers, config) {
+            console.log(data);
+            // tell the user new product was created
+            //Materialize.toast(data, 4000);
+
+            // clear modal content
+            //$scope.clearForm();
+
+            // refresh the list
+            $scope.getAllCategories();
+        });
+        //$uibModalInstance.close($scope.selected.option);
+        $uibModalInstance.close();
     };
 };
 
@@ -491,10 +519,29 @@ productControllers.controller('ScrollCtrl', ['$scope', '$location', '$anchorScro
 
 
 productControllers.controller('CategoriesListCtrl', ['$scope', '$uibModal', '$http',
-        function ($scope, $location, $http){
+        function ($scope, $uibModal, $http){
             $scope.getAllCategories = function () {
                 $http.get("read_all_categories.php").success(function (response) {
                     $scope.categories = response.records;
+                });
+            };
+            $scope.newCategory = function (items) {
+                var modalInstance = $uibModal.open({
+                    templateUrl: 'categoryContent.html',
+                    controller: ModalInstanceCtrl,
+                    resolve: {
+                        items: function () {
+                            return items;
+                        },
+                        expense: function () {
+                            return "";
+                        }
+                    },
+                    http: $http,
+                    scope: $scope
+                });
+                modalInstance.result.then(function (selectedItem) {
+                    $scope.selected = selectedItem;
                 });
             };
         }]);

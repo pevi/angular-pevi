@@ -44,9 +44,10 @@ body{
     overflow: auto;
 }
 .ng-scope body.modal-open .modal-header{
-    background-color: #3fbdf0;
+    background-color: #337ab7;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+    color: #fff;
 }
 .ng-scope body.modal-open .modal-body label{
     float: left;
@@ -134,7 +135,9 @@ body{
 #pevi-navbar div.ha .ha,
 #pevi-navbar div.details .details,
 #pevi-navbar div.details .expenses,
-#pevi-navbar div.details .categories{
+#pevi-navbar div.details .categories,
+#pevi-navbar div.expenses .dropdown .home,
+#pevi-navbar div.categories .dropdown .home{
 	/*background-color:#196a94;*/
 	/*background-color: #0899cc;*/
 
@@ -145,16 +148,32 @@ body{
     display: block;
     line-height: 40px;
 }
+#pevi-navbar div.expenses .dropdown ul a.expenses,
+#pevi-navbar div.categories .dropdown ul a.categories{
+    background-color: #0899cc !important;
+    color: #fff;
+}
+#pevi-navbar.headerScrolledDown ul.dropdown-menu li a{
+    color: #000 !important;
+}
 #pevi-navbar.headerScrolledDown div.dropdown .dropdown,
 #pevi-navbar.headerScrolledDown div.ha .ha,
-#pevi-navbar.headerScrolledDown div.details .details{
+#pevi-navbar.headerScrolledDown div.details .details,
+#pevi-navbar.headerScrolledDown div.expenses .dropdown .home,
+#pevi-navbar.headerScrolledDown div.categories .dropdown .home{
     border-top: 5px solid #fff !important;
+    color: #fff !important;
+}
+#pevi-navbar.headerScrolledDown div.expenses .dropdown ul a.expenses,
+#pevi-navbar.headerScrolledDown div.categories .dropdown ul a.categories{
+    background-color: #0899cc !important;
     color: #fff !important;
 }
 /*  Table css */
 .pevi-content table, #pevi-content table {
 	/*background-color: transparent;*/
 	background-color: rgba(255, 255, 255, 0.95);
+    border-color: #999999;
     /*box-shadow: 1px 1px 10px 5px rgba(255, 255, 255, 0.85);*/
     font-family: Tahoma,Geneva,sans-serif;
     font-size: 12px;
@@ -173,11 +192,15 @@ body{
 	/*border: medium none;*/
 }
 .pevi-content table.bordered > thead > tr, table.bordered > tbody > tr {
-	border-bottom: 1px solid #0899cc;
+	/*border-bottom: 1px solid #0899cc;*/
+	border-bottom: 1px solid #005a7e;
 }
+.pevi-content table tbody tr:nth-child(even) {background: #ececec}
+.pevi-content table tbody tr:nth-child(odd) {background: #FFF}
 .pevi-content thead {
-	background-color: #7c7c82;
-	border: 1px solid #0899cc;
+	/*background-color: #7c7c82;*/
+	background-color: #0899cc;
+	border: 1px solid #005a7e;
 	color: #fff;
 }
 .pevi-content table, th, td {
@@ -185,6 +208,9 @@ body{
 }
 .pevi-content table tr td, thead tr th {
     padding: 5px;
+}
+.pevi-content table tr td:first-child, .pevi-content thead tr th:first-child {
+    padding-left: 15px;
 }
 .pevi-content .margin-bottom-1em {
     margin: 10px 0px;
@@ -205,7 +231,13 @@ body{
     vertical-align: middle;
     white-space: nowrap;
 }
- th {
+#pevi-content .pagination li a{
+    border-color: #999;
+}
+#pevi-content .pagination li.active a{
+    background-color: #0899cc;
+}
+th {
      cursor: pointer;
      text-align: left;
 }
@@ -264,25 +296,33 @@ td .tooltip {
     color: #fff;
 }
 
-.add-expense{
+#pevi-content .add-expense, #pevi-content .add-category{
 	/*border: 1px solid rgba(0, 0, 0, 0.35);*/
 	/*border-radius: 4px;*/
 	/*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.35), 0 4px 4px 0 rgba(0, 0, 0, 0.15);*/
 	/*transition: all 0.2s ease-out 0s;*/
 
-    background-color: #007eb1;
-    /*border: 1px solid rgba(0, 0, 0, 0.35);*/
-    border-radius: 30px !important;
-    /*box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.75);*/
-    color: #fff;
-    padding: 10px !important;
-    transition: all 0.2s ease-out 0s;
+    /*background-color: #007eb1;*/
+    /*border-radius: 30px !important;*/
+    /*color: #fff;*/
+    /*padding: 10px !important;*/
+    /*transition: all 0.2s ease-out 0s;*/
+
+    /*border-width: 2px !important;*/
+    border: 2px solid #007eb1;
+    /*opacity: .6;*/
+    padding: 4px 12px !important;
+    transition: all 0.3s ease-out 0s;
 }
-a.add-expense:hover{
-    background-color: #005a7e;
-    color: #fff !important;
+#pevi-content a.add-expense:hover, #pevi-content a.add-category:hover{
+    /*background-color: #005a7e;*/
+    background-color: transparent;
+    border: 2px solid #005a7e;
+    color: #005a7e;
+    /*color: #fff !important;*/
     /*border: 1px solid rgba(0, 0, 0, 0.35);*/
-    /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.35), 0 4px 4px 0 rgba(0, 0, 0, 0.15);*/
+    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.35);
+    opacity: 1;
     transition: all 0.2s ease-out 0s;
 }
 .pevi-content .btn.active, .pevi-content .btn:active{

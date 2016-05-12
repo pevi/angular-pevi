@@ -60,9 +60,9 @@ function create(){
 
     // query to insert record
     $query = "INSERT INTO
-                " . $this->table_name . "
+                " . $this->category_table . "
             SET
-                exp_name=:name, exp_desc=:description, category=:category, category_desc=:category_desc, exp_date=:created";
+                cat_name=:name, cat_desc=:description, cat_priority=:priority";
 
     // prepare query
     $stmt = $this->conn->prepare($query);
@@ -70,16 +70,12 @@ function create(){
     // posted values
     $this->name=htmlspecialchars(strip_tags($this->name));
     $this->description=htmlspecialchars(strip_tags($this->description));
-    $this->category=htmlspecialchars(strip_tags($this->category));
-    $this->category_desc=htmlspecialchars(strip_tags($this->category_desc));
-    $this->created=htmlspecialchars(strip_tags($this->created));
+    $this->priority=htmlspecialchars(strip_tags($this->priority));
 
     // bind values
     $stmt->bindParam(":name", $this->name);
     $stmt->bindParam(":description", $this->description);
-    $stmt->bindParam(":category", $this->category);
-    $stmt->bindParam(":category_desc", $this->category_desc);
-    $stmt->bindParam(":created", $this->created);
+    $stmt->bindParam(":priority", $this->priority);
 
     // execute query
     if($stmt->execute()){

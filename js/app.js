@@ -4,7 +4,7 @@ var app = angular.module('peviApp', [
 	'ngRoute',
   'productControllers',
     'directives',
-  'productFilters', 'ngSanitize', 'xeditable'
+  'productFilters', 'ngSanitize', 'xeditable', 'angularUtils.directives.dirPagination'
   ]);
 
 app.config(['$routeProvider', '$locationProvider',

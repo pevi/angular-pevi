@@ -53,7 +53,8 @@
                 </tr>
                 </thead>
                 <tbody ng-init="getAll()">
-                <tr ng-repeat="d in names | filter:search | orderBy:predicate:reverse">
+                <!--<tr ng-repeat="d in names | filter:search | orderBy:predicate:reverse">-->
+                <tr dir-paginate="d in names|filter:search|orderBy:predicate:reverse|itemsPerPage:10">
                     <!--<td class="text-align-center">{{ d.id }}</td>-->
                     <td>{{ d.name }}</td>
                     <td>{{ d.description }}</td>
@@ -67,6 +68,11 @@
                 </tr>
                 </tbody>
             </table>
+            <dir-pagination-controls
+                    max-size="10"
+                    direction-links="true"
+                    boundary-links="true" >
+            </dir-pagination-controls>
 
             <script type="text/ng-template" id="myModalContent.html">
                 <div class="modal-header">
