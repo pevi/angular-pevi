@@ -189,24 +189,32 @@ body{
 .pevi-content table, th, td {
 	/*border: medium none;*/
 }
-.pevi-content table.bordered > thead > tr, table.bordered > tbody > tr {
+table.bordered > tbody > tr {
 	/*border-bottom: 1px solid #0899cc;*/
 	/*border-bottom: 1px solid #005a7e;*/
 	border-bottom: 1px solid #999;
 }
-.pevi-content table tbody tr:nth-child(even) {background: #ececec}
-.pevi-content table tbody tr:nth-child(odd) {background: #FFF}
+/*.pevi-content table tbody tr:nth-child(even) {background: #ececec}*/
+/*.pevi-content table tbody tr:nth-child(odd) {background: #FFF}*/
+
 .pevi-content thead {
-	/*background-color: #7c7c82;*/
-	background-color: #0899cc;
+	background-color: #7c7c82;
+	/*background-color: #0899cc;*/
 	border: 1px solid #005a7e;
 	color: #fff;
+}
+.pevi-content thead tr{
+    border-bottom: 2px solid #005a7e;
 }
 .pevi-content table, th, td {
     /*border: medium none;*/
 }
-.pevi-content table tr td, thead tr th {
+.pevi-content table tr td, .pevi-content thead tr th {
     padding: 5px;
+}
+.pevi-content thead tr th {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .pevi-content table tr td:first-child, .pevi-content thead tr th:first-child {
     padding-left: 15px;
@@ -250,8 +258,10 @@ th {
 	text-align: left;
 	vertical-align: middle;
 }
-tbody tr:hover{
-    background: #f2f2f2;
+tbody tr:hover, tbody tr:hover td:last-child a i{
+    /*background: #f2f2f2;*/
+    background: #0899cc;
+    color: #fff;
 }
 td .tooltip {
     position:absolute
@@ -311,7 +321,7 @@ td .tooltip {
     border: 2px solid #007eb1;
     /*opacity: .6;*/
     padding: 4px 12px !important;
-    transition: all 0.3s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
 }
 #pevi-content a.add-expense:hover, #pevi-content a.add-category:hover{
     /*background-color: #005a7e;*/
@@ -320,7 +330,7 @@ td .tooltip {
     color: #005a7e;
     /*color: #fff !important;*/
     /*border: 1px solid rgba(0, 0, 0, 0.35);*/
-    box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.35);
+    /*box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.35);*/
     opacity: 1;
     transition: all 0.2s ease-out 0s;
 }
@@ -343,7 +353,7 @@ td .tooltip {
 	word-wrap: normal;
 }
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark:hover { color: rgba(0, 0, 0, 0.84); }
+/*.material-icons.md-dark:hover { color: rgba(0, 0, 0, 0.84); }*/
 .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
 
 .home-icon{
