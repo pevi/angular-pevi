@@ -134,10 +134,8 @@ body{
 #pevi-navbar div.dropdown .dropdown,
 #pevi-navbar div.ha .ha,
 #pevi-navbar div.details .details,
-#pevi-navbar div.details .expenses,
-#pevi-navbar div.details .categories,
-#pevi-navbar div.expenses .dropdown .home,
-#pevi-navbar div.categories .dropdown .home{
+#pevi-navbar div.expenses .dropdown-toggle,
+#pevi-navbar div.categories .dropdown-toggle{
 	/*background-color:#196a94;*/
 	/*background-color: #0899cc;*/
 
@@ -151,7 +149,7 @@ body{
 #pevi-navbar div.expenses .dropdown ul a.expenses,
 #pevi-navbar div.categories .dropdown ul a.categories{
     background-color: #0899cc !important;
-    color: #fff;
+    color: #fff !important;
 }
 #pevi-navbar.headerScrolledDown ul.dropdown-menu li a{
     color: #000 !important;
@@ -193,7 +191,8 @@ body{
 }
 .pevi-content table.bordered > thead > tr, table.bordered > tbody > tr {
 	/*border-bottom: 1px solid #0899cc;*/
-	border-bottom: 1px solid #005a7e;
+	/*border-bottom: 1px solid #005a7e;*/
+	border-bottom: 1px solid #999;
 }
 .pevi-content table tbody tr:nth-child(even) {background: #ececec}
 .pevi-content table tbody tr:nth-child(odd) {background: #FFF}
